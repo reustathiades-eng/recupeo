@@ -487,3 +487,39 @@ Manquent uniquement les emails Brevo automatiques et du contenu statique.
 **Tâches complétées :** T039, T034, T035
 **Build :** ✅ tsc 0 erreurs, build OK, PM2 OK, HTTP 200
 **Progression :** 81/113 (72%)
+
+---
+
+## Session 8 — 2026-03-19
+
+**Objectif :** Régimes spéciaux (T200-T206)
+
+**Réalisé :**
+
+**Données de référence :**
+- `data/regimes-complementaires.json` (68l) : valeurs points RAFP (0,04764€), Ircantec (0,50453€), RCI (1,221€), CNAVPL (0,6076€), MSA forfaitaire (3567,88€/an), MSA proportionnelle (4,046€/pt), seuil Chassaigne (1177,44€/mois), minimum garanti FP (table progressive 15-40 ans)
+- `data/index.ts` : +13 fonctions accesseurs (getValeurPointRAFP, getMinimumGaranti, getValeurPointIndiceFP, etc.)
+
+**Types (types.ts) :**
+- `CalculFP` : indice majoré, traitement indiciaire, taux 75%, proratisation, bonifications, min garanti, NBI
+- `CalculMSAExploitant` : forfaitaire + proportionnelle + Chassaigne + CDP
+- `CalculCNAVPL` : points × valeur, décote/surcote
+- `CalculComplementaire` : générique points (RAFP, Ircantec, RCI)
+- `ExtractionNotificationFP` : SRE/CNRACL extraction
+- `CalculResult` : +5 champs (fonctionnaires, msaExploitant, cnavpl, complementaires)
+
+**Moteurs de calcul :**
+- `calcul/fonctionnaires.ts` (199l) : Traitement × 75% × proratisation, décote 1.25%/trim, bonifications enfants, min garanti, NBI
+- `calcul/msa-exploitants.ts` (133l) : Forfaitaire + proportionnelle (points), revalorisation Chassaigne (85% SMIC), CDP
+- `calcul/cnavpl.ts` (98l) : Points × valeur, décote 1.25%/trim, surcote 0.75%/trim
+- `calcul/complementaires.ts` (120l) : RAFP (seuil rente/capital), Ircantec (majoration enfants), RCI
+- `calcul/engine.ts` (213l) : refonte complète — dispatche vers 7 sous-moteurs, totalise tous régimes, précision dynamique
+
+**Extraction :**
+- `extraction/parsers/notification-fp.ts` (126l) : regex SRE/CNRACL — indice, traitement, taux, trimestres, pension, date effet, NBI, RAFP
+
+**Anomalies :**
+- `detector.ts` : +6 détecteurs — N1_FP_TRAITEMENT_INCORRECT, N1_FP_BONIFICATION_MANQUANTE, N1_FP_MINIMUM_GARANTI, N1_MSA_REVALORISATION (Chassaigne), N2_RAFP_MANQUANT, N2_IRCANTEC_OUBLIE, N2_RCI_CONVERSION
+
+**Tâches complétées :** T200, T201, T202, T203, T204, T205, T206
+**Build :** ✅ tsc 0 erreurs, build OK, PM2 OK, HTTP 200

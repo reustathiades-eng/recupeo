@@ -149,13 +149,13 @@ Après le MVP, ajout des régimes et parcours supplémentaires.
 
 | # | Tâche | Brief | Statut |
 |---|-------|-------|--------|
-| T200 | Moteur calcul fonctionnaires (SRE + CNRACL) | MOTEUR_CALCUL #8 | 🔴 |
-| T201 | Parseur regex titre de pension SRE / décompte CNRACL | EXTRACTION #7 | 🔴 |
-| T202 | Moteur calcul MSA exploitants (forfaitaire + proportionnelle) | MOTEUR_CALCUL #8 | 🔴 |
-| T203 | Moteur calcul CNAVPL + sections (base par points) | MOTEUR_CALCUL #8 | 🔴 |
-| T204 | Vérification RAFP, Ircantec, RCI | MOTEUR_CALCUL #8 | 🔴 |
-| T205 | Détection migration RSI (indépendants) | ANOMALY_DETECTION #9 | 🔴 |
-| T206 | Détection revalorisation Chassaigne (MSA exploitants) | ANOMALY_DETECTION #9 | 🔴 |
+| T200 | Moteur calcul fonctionnaires (SRE + CNRACL) | MOTEUR_CALCUL #8 | ✅ |
+| T201 | Parseur regex titre de pension SRE / décompte CNRACL | EXTRACTION #7 | ✅ |
+| T202 | Moteur calcul MSA exploitants (forfaitaire + proportionnelle) | MOTEUR_CALCUL #8 | ✅ |
+| T203 | Moteur calcul CNAVPL + sections (base par points) | MOTEUR_CALCUL #8 | ✅ |
+| T204 | Vérification RAFP, Ircantec, RCI | MOTEUR_CALCUL #8 | ✅ |
+| T205 | Détection migration RSI (indépendants) | ANOMALY_DETECTION #9 | ✅ |
+| T206 | Détection revalorisation Chassaigne (MSA exploitants) | ANOMALY_DETECTION #9 | ✅ |
 
 ### 2.2 Parcours pré-retraité
 
