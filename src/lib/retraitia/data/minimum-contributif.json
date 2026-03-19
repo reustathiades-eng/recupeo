@@ -1,0 +1,23 @@
+{
+  "comment": "Minimum contributif (€/mois). Source: lassuranceretraite.fr",
+  "data": {
+    "2025": {
+      "simple": 752.6,
+      "majore": 912.04,
+      "plafond": 1367.51,
+      "seuil_trim_cotises": 120
+    },
+    "2024": {
+      "simple": 747.57,
+      "majore": 903.94,
+      "plafond": 1367.51,
+      "seuil_trim_cotises": 120
+    },
+    "2023": {
+      "simple": 709.13,
+      "majore": 847.57,
+      "plafond": 1309.75,
+      "seuil_trim_cotises": 120
+    }
+  }
+}

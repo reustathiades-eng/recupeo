@@ -1,0 +1,83 @@
+{
+  "comment": "Seuils de RFR pour les taux de CSG sur les pensions. Source: art. L.136-8 CSS, impots.gouv.fr",
+  "taux": {
+    "exoneration": {
+      "csg": 0,
+      "crds": 0,
+      "casa": 0,
+      "total": 0
+    },
+    "reduit": {
+      "csg": 3.8,
+      "crds": 0.5,
+      "casa": 0,
+      "total": 4.3
+    },
+    "median": {
+      "csg": 6.6,
+      "crds": 0.5,
+      "casa": 0.3,
+      "total": 7.4
+    },
+    "normal": {
+      "csg": 8.3,
+      "crds": 0.5,
+      "casa": 0.3,
+      "total": 9.1
+    }
+  },
+  "seuils": {
+    "2025": {
+      "exoneration": {
+        "1_part": 12230,
+        "1.5_parts": 15495,
+        "2_parts": 18759,
+        "2.5_parts": 22024,
+        "3_parts": 25288,
+        "demi_part_supp": 3265
+      },
+      "taux_reduit": {
+        "1_part": 15988,
+        "1.5_parts": 20257,
+        "2_parts": 24525,
+        "2.5_parts": 28794,
+        "3_parts": 33062,
+        "demi_part_supp": 4269
+      },
+      "taux_median": {
+        "1_part": 24813,
+        "1.5_parts": 31435,
+        "2_parts": 38057,
+        "2.5_parts": 44679,
+        "3_parts": 51301,
+        "demi_part_supp": 6622
+      }
+    },
+    "2024": {
+      "exoneration": {
+        "1_part": 11614,
+        "1.5_parts": 14714,
+        "2_parts": 17814,
+        "2.5_parts": 20914,
+        "3_parts": 24014,
+        "demi_part_supp": 3100
+      },
+      "taux_reduit": {
+        "1_part": 15183,
+        "1.5_parts": 19237,
+        "2_parts": 23290,
+        "2.5_parts": 27344,
+        "3_parts": 31397,
+        "demi_part_supp": 4054
+      },
+      "taux_median": {
+        "1_part": 23564,
+        "1.5_parts": 29853,
+        "2_parts": 36142,
+        "2.5_parts": 42431,
+        "3_parts": 48720,
+        "demi_part_supp": 6289
+      }
+    }
+  }
+}

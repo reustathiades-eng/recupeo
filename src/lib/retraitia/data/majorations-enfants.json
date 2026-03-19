@@ -1,0 +1,48 @@
+{
+  "comment": "Majorations pour enfants par régime. Source: CSS, conventions AA",
+  "data": {
+    "cnav": {
+      "seuil": 3,
+      "taux": 10,
+      "condition": "3+ enfants élevés 9 ans avant 16 ans",
+      "plafonne": false
+    },
+    "agirc_arrco": {
+      "option_3_enfants": {
+        "seuil": 3,
+        "taux": 10,
+        "condition": "3+ enfants élevés 9 ans avant 16 ans",
+        "plafonne": true
+      },
+      "option_enfant_a_charge": {
+        "taux_par_enfant": 5,
+        "condition": "par enfant à charge à la liquidation",
+        "plafonne": false
+      }
+    },
+    "sre": {
+      "seuil": 3,
+      "taux": 10,
+      "condition": "3+ enfants élevés 9 ans avant 16 ans",
+      "plafonne": false
+    },
+    "cnracl": {
+      "seuil": 3,
+      "taux": 10,
+      "condition": "3+ enfants élevés 9 ans avant 16 ans",
+      "plafonne": false
+    },
+    "msa": {
+      "seuil": 3,
+      "taux": 10,
+      "condition": "Identique CNAV",
+      "plafonne": false
+    },
+    "cnavpl": {
+      "seuil": 3,
+      "taux": 10,
+      "condition": "3+ enfants (depuis réforme 2023)",
+      "plafonne": false
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "comment": "Trimestres requis par génération. Post-réforme 2023 + gel LFSS 2026. Source: art. L.161-17-3 CSS",
+  "data": {
+    "1950": 162,
+    "1951": 163,
+    "1952": 164,
+    "1953": 165,
+    "1954": 165,
+    "1955": 166,
+    "1956": 166,
+    "1957": 166,
+    "1958": 167,
+    "1959": 167,
+    "1960": 167,
+    "1961_S1": {
+      "value": 168,
+      "moisDebut": 1,
+      "moisFin": 8,
+      "note": "janv-août 1961"
+    },
+    "1961_S2": {
+      "value": 169,
+      "moisDebut": 9,
+      "moisFin": 12,
+      "note": "sept-déc 1961 — réforme 2023"
+    },
+    "1962": 169,
+    "1963_T1": {
+      "value": 170,
+      "moisDebut": 1,
+      "moisFin": 3,
+      "note": "janv-mars 1963 — GELÉ LFSS 2026"
+    },
+    "1963_S2": {
+      "value": 170,
+      "moisDebut": 4,
+      "moisFin": 12,
+      "note": "avr-déc 1963 — GELÉ LFSS 2026"
+    },
+    "1964": {
+      "value": 170,
+      "note": "GELÉ LFSS 2026"
+    },
+    "1965_T1": {
+      "value": 170,
+      "moisDebut": 1,
+      "moisFin": 3,
+      "note": "janv-mars 1965 — GELÉ LFSS 2026"
+    },
+    "1965_post_mars": {
+      "value": null,
+      "note": "EN ATTENTE de nouveaux textes législatifs"
+    }
+  }
+}

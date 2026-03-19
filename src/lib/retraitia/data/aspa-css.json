@@ -1,0 +1,27 @@
+{
+  "comment": "Seuils ASPA et CSS. Source: service-public.fr, ameli.fr",
+  "aspa": {
+    "2025": {
+      "montant_seul": 1034.28,
+      "montant_couple": 1605.73,
+      "plafond_seul": 12411.36,
+      "plafond_couple": 19268.76
+    },
+    "2024": {
+      "montant_seul": 1012.02,
+      "montant_couple": 1571.16,
+      "plafond_seul": 12144.24,
+      "plafond_couple": 18853.92
+    }
+  },
+  "css": {
+    "2025": {
+      "gratuit_seul": 10166,
+      "participation_seul": 13724
+    },
+    "2024": {
+      "gratuit_seul": 9719,
+      "participation_seul": 13120
+    }
+  }
+}

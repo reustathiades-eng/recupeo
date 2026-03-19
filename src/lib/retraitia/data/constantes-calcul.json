@@ -1,0 +1,41 @@
+{
+  "comment": "Constantes de calcul des pensions. Sources multiples.",
+  "cnav": {
+    "taux_plein": 50,
+    "decote_par_trimestre": 0.625,
+    "surcote_par_trimestre": 1.25,
+    "max_trimestres_decote": 20,
+    "taux_minimum": 37.5,
+    "age_taux_plein_auto_mois": 804
+  },
+  "fonctionnaires": {
+    "taux_plein_pct": 75,
+    "decote_par_trimestre_taux": 1.25,
+    "decote_par_trimestre_pension": 0.9375,
+    "surcote_par_trimestre": 1.25,
+    "max_trimestres_bonification": 20
+  },
+  "agirc_arrco": {
+    "malus_taux": 10,
+    "malus_duree_mois": 36,
+    "malus_age_fin": 67,
+    "trimestres_supp_pour_eviter_malus": 4
+  },
+  "trimestres_enfants": {
+    "mere_maternite": 4,
+    "mere_education": 4,
+    "pere_education_possible": 4,
+    "total_mere_par_enfant": 8,
+    "total_pere_par_enfant_max": 4
+  },
+  "chomage": {
+    "jours_par_trimestre_indemnise": 50,
+    "max_trim_par_an": 4,
+    "trim_premiere_periode_non_indemnise": 6,
+    "trim_subsequent_non_indemnise": 4
+  },
+  "maladie": {
+    "jours_par_trimestre": 60,
+    "maternite_trim_par_accouchement": 1
+  }
+}

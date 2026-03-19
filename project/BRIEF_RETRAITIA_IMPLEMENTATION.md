@@ -1,0 +1,1 @@
+$(cat /home/claude/BRIEF_RETRAITIA_IMPLEMENTATION.md)

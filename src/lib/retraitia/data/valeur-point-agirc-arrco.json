@@ -1,0 +1,50 @@
+{
+  "comment": "Valeur de SERVICE du point Agirc-Arrco (€). Source: agirc-arrco.fr",
+  "service": {
+    "2019": 1.2588,
+    "2020": 1.2714,
+    "2021": 1.2841,
+    "2022": 1.2841,
+    "2023": 1.3498,
+    "2024": 1.4159,
+    "2025": 1.4386,
+    "2026": 1.4386
+  },
+  "service_note_2026": "Gelée jusqu'à fin octobre 2026",
+  "achat": {
+    "2019": 17.3982,
+    "2020": 17.3982,
+    "2021": 17.3982,
+    "2022": 17.4316,
+    "2023": 18.7669,
+    "2024": 19.6321,
+    "2025": 19.6321,
+    "2026": 19.6321
+  },
+  "pre_fusion": {
+    "comment": "Avant 2019 : Arrco (tous salariés) + Agirc (cadres). Coeff conversion Agirc→unifié: 0.347791548",
+    "coefficient_conversion_agirc": 0.347791548,
+    "arrco": {
+      "2015": 1.2513,
+      "2016": 1.2513,
+      "2017": 1.2513,
+      "2018": 1.2513
+    },
+    "agirc": {
+      "2015": 0.4352,
+      "2016": 0.4352,
+      "2017": 0.4352,
+      "2018": 0.4352
+    }
+  },
+  "gmp_points_annuels": {
+    "comment": "Garantie Minimale de Points (cadres, supprimée en 2019)",
+    "2012": 120,
+    "2013": 120,
+    "2014": 120,
+    "2015": 120,
+    "2016": 120,
+    "2017": 120,
+    "2018": 120
+  }
+}

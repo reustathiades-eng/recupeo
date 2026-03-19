@@ -1,0 +1,54 @@
+{
+  "comment": "Âge légal de départ en mois. Post-réforme 2023 + gel LFSS 2026. Source: art. L.161-17-2 CSS",
+  "ageTauxPleinAuto": 804,
+  "data": {
+    "1955": 744,
+    "1956": 744,
+    "1957": 744,
+    "1958": 744,
+    "1959": 744,
+    "1960": 744,
+    "1961_S1": {
+      "value": 744,
+      "moisDebut": 1,
+      "moisFin": 8,
+      "note": "62 ans — janv-août 1961"
+    },
+    "1961_S2": {
+      "value": 747,
+      "moisDebut": 9,
+      "moisFin": 12,
+      "note": "62 ans 3 mois — réforme 2023"
+    },
+    "1962": {
+      "value": 750,
+      "note": "62 ans 6 mois"
+    },
+    "1963_T1": {
+      "value": 753,
+      "moisDebut": 1,
+      "moisFin": 3,
+      "note": "62 ans 9 mois — GELÉ LFSS 2026"
+    },
+    "1963_S2": {
+      "value": 753,
+      "moisDebut": 4,
+      "moisFin": 12,
+      "note": "62 ans 9 mois — GELÉ LFSS 2026"
+    },
+    "1964": {
+      "value": 753,
+      "note": "62 ans 9 mois — GELÉ LFSS 2026"
+    },
+    "1965_T1": {
+      "value": 753,
+      "moisDebut": 1,
+      "moisFin": 3,
+      "note": "62 ans 9 mois — GELÉ LFSS 2026"
+    },
+    "1965_post_mars": {
+      "value": null,
+      "note": "EN ATTENTE de nouveaux textes"
+    }
+  }
+}

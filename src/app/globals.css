@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Bricolage Grotesque', sans-serif; }
+
+.hero-gradient {
+  background: linear-gradient(165deg, #060D1B 0%, #0B1426 40%, #0F2847 100%);
+  position: relative; overflow: hidden;
+}
+.hero-gradient::before {
+  content: ''; position: absolute; top: -40%; right: -20%; width: 80%; height: 120%;
+  background: radial-gradient(ellipse, rgba(0,214,143,0.07) 0%, transparent 65%); pointer-events: none;
+}
+.hero-gradient::after {
+  content: ''; position: absolute; bottom: -30%; left: -10%; width: 60%; height: 80%;
+  background: radial-gradient(ellipse, rgba(37,99,235,0.05) 0%, transparent 60%); pointer-events: none;
+}
+.grid-bg {
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.brique-card {
+  @apply bg-white border border-slate-border rounded-2xl p-6 transition-all duration-300 cursor-pointer relative overflow-hidden;
+}
+.brique-card::before {
+  content: ''; @apply absolute top-0 left-0 right-0 h-[3px] opacity-0 transition-opacity duration-300;
+  background: linear-gradient(90deg, #00D68F, #2563EB);
+}
+.brique-card:hover { @apply border-emerald -translate-y-1; box-shadow: 0 8px 30px rgba(0,214,143,0.1); }
+.brique-card:hover::before { @apply opacity-100; }
+
+.cta-primary {
+  @apply inline-flex items-center gap-2 px-8 py-4 bg-emerald text-navy-dark rounded-xl text-base font-bold transition-all duration-200;
+}
+.cta-primary:hover { @apply bg-emerald-dark -translate-y-0.5; box-shadow: 0 8px 25px rgba(0,214,143,0.3); }
+.cta-outline { @apply inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white/25 text-white rounded-xl text-base font-bold transition-all duration-200; }
+.cta-outline:hover { @apply border-emerald; background: rgba(0,214,143,0.08); }
+
+.pricing-card { @apply bg-white border-2 border-slate-border rounded-2xl p-9 transition-all duration-300 relative; }
+.pricing-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.pricing-featured { @apply border-emerald; box-shadow: 0 12px 40px rgba(0,214,143,0.12); transform: scale(1.03); }
+@media (max-width: 768px) { .pricing-featured { transform: scale(1); } }
+[id] { scroll-margin-top: 80px; }
+
+/* ─── Print styles ─── */
+@media print {
+  nav, footer, .print\\:hidden, .cta-primary, button { display: none !important; }
+  body { font-size: 12px; }
+  section { padding: 12px 0 !important; }
+  .bg-slate-bg, .bg-white { background: white !important; }
+  .border { border-color: #ddd !important; }
+}

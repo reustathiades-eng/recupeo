@@ -1,0 +1,68 @@
+{
+  "comment": "Valeurs des points et données complémentaires par régime. Sources : sites officiels, rapports annuels 2025.",
+
+  "rafp": {
+    "comment": "Retraite Additionnelle FP — depuis 2005",
+    "valeur_service_point_2025": 0.04764,
+    "valeur_acquisition_point_2025": 1.3466,
+    "seuil_rente_annuel": 5880,
+    "comment_seuil": "En dessous du seuil, versement en capital"
+  },
+
+  "ircantec": {
+    "comment": "Contractuels FP",
+    "valeur_service_point_2025": 0.50453,
+    "valeur_acquisition_t1_2025": 4.019,
+    "valeur_acquisition_t2_2025": 16.076,
+    "plafond_t1_pct_pass": 100,
+    "majoration_enfants_pct": 10,
+    "majoration_enfants_min_enfants": 3
+  },
+
+  "rci": {
+    "comment": "Régime Complémentaire des Indépendants (en extinction progressive)",
+    "valeur_service_point_2025": 1.221,
+    "comment_rci": "Points acquis avant 2020 convertis en euros. Plus de nouvelles acquisitions."
+  },
+
+  "cnavpl_base": {
+    "comment": "Base commune professions libérales (hors CNBF avocats)",
+    "valeur_service_point_2025": 0.6076,
+    "cotisation_tranche1_pct_pass": 85,
+    "cotisation_tranche2_max_pct_pass": 500,
+    "taux_cotisation_t1": 10.10,
+    "taux_cotisation_t2": 1.87,
+    "majoration_enfants_pct": 10,
+    "majoration_enfants_min_enfants": 3,
+    "decote_applicable": true,
+    "surcote_applicable": true
+  },
+
+  "msa_exploitant": {
+    "comment": "MSA exploitants agricoles — forfaitaire + proportionnelle",
+    "forfaitaire_annuel_2025": 3567.88,
+    "valeur_service_point_proportionnelle_2025": 4.046,
+    "comment_forfaitaire": "Montant pour trimestres requis complets",
+    "chassaigne": {
+      "comment": "Loi Chassaigne 1 (2021) + 2 (2022) : minimum 85% SMIC pour carrière complète",
+      "seuil_mensuel_2025": 1177.44,
+      "condition": "Carrière complète en tant que chef d'exploitation",
+      "commentaire_progressif": "Application progressive 2021-2026"
+    },
+    "cdp": {
+      "comment": "Complément Différentiel de Points",
+      "plafond_mensuel_2025": 1177.44
+    }
+  },
+
+  "minimum_garanti_fp": {
+    "comment": "Minimum garanti fonction publique — table progressive. Montant mensuel 2025.",
+    "montant_15_ans": 1253.04,
+    "montant_40_ans": 1432.32,
+    "formule_0_15": "Indice majoré 227 × nb_annees / 60",
+    "formule_15_40": "montant_15_ans + (montant_40_ans - montant_15_ans) × (annees - 15) / 25",
+    "formule_40_plus": "montant_40_ans",
+    "indice_majore_plancher": 227,
+    "valeur_point_indice_fp_2025": 4.92278
+  }
+}

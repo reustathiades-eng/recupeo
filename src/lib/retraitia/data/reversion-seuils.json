@@ -1,0 +1,40 @@
+{
+  "comment": "Seuils de ressources pour la pension de réversion. Source: lassuranceretraite.fr, agirc-arrco.fr",
+  "cnav": {
+    "taux": 54,
+    "age_minimum": 55,
+    "condition_ressources": true,
+    "seuils": {
+      "2025": {
+        "seul": 24588.8,
+        "couple": 39342.08
+      },
+      "2024": {
+        "seul": 24232.0,
+        "couple": 38771.2
+      }
+    }
+  },
+  "agirc_arrco": {
+    "taux": 60,
+    "age_minimum": 55,
+    "condition_ressources": false,
+    "condition_non_remarie": true
+  },
+  "sre": {
+    "taux": 50,
+    "age_minimum": 0,
+    "condition_ressources": false,
+    "condition_duree_mariage": "4 ans minimum ou enfant issu du mariage"
+  },
+  "cnracl": {
+    "taux": 50,
+    "age_minimum": 0,
+    "condition_ressources": false,
+    "condition_duree_mariage": "Identique SRE"
+  },
+  "msa": {
+    "taux": 54,
+    "note": "Identique CNAV (Lura)"
+  }
+}

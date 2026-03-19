@@ -1,0 +1,1520 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "url": "http://localhost:3000/",
+      "errors": [],
+      "warnings": [
+        "CODE: No GA4 tracking (track()) found"
+      ],
+      "info": [],
+      "httpStatus": 200,
+      "title": "RÉCUPÉO — L'IA qui récupère ce qu'on vous doit",
+      "linksCount": 29,
+      "imagesCount": 16,
+      "buttonsCount": 11,
+      "inputsCount": 0,
+      "anchorsCount": 6,
+      "ogTags": {
+        "og:title": "RÉCUPÉO — L&#x27;IA qui récupère ce qu&#x27;on vous doit",
+        "og:description": "Uploadez vos documents. Notre IA détecte les erreurs et génère les courriers pour récupérer votre argent.",
+        "og:url": "https://recupeo.fr",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO — Uploadez. Vérifiez. Récupérez.",
+        "og:type": "website"
+      },
+      "externalLinks": 0,
+      "htmlSize": "95KB"
+    },
+    {
+      "path": "/monimpot",
+      "url": "http://localhost:3000/monimpot",
+      "errors": [],
+      "warnings": [],
+      "info": [],
+      "httpStatus": 200,
+      "title": "Payez-vous trop d'impôts ? Audit IA gratuit | RÉCUPÉO",
+      "linksCount": 18,
+      "imagesCount": 2,
+      "buttonsCount": 16,
+      "inputsCount": 0,
+      "anchorsCount": 4,
+      "ogTags": {
+        "og:title": "MONIMPÔT — Audit IA de votre déclaration de revenus",
+        "og:description": "Uploadez votre avis d&#x27;imposition. L&#x27;IA détecte les cases oubliées et génère votre réclamation.",
+        "og:url": "https://recupeo.fr/monimpot",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO"
+      },
+      "externalLinks": 0,
+      "htmlSize": "39KB"
+    },
+    {
+      "path": "/macaution",
+      "url": "http://localhost:3000/macaution",
+      "errors": [],
+      "warnings": [
+        "CODE: No GA4 tracking (track()) found"
+      ],
+      "info": [],
+      "httpStatus": 200,
+      "title": "Dépôt de garantie non rendu ? Vérifiez gratuitement | RÉCUPÉO",
+      "linksCount": 18,
+      "imagesCount": 2,
+      "buttonsCount": 15,
+      "inputsCount": 2,
+      "anchorsCount": 5,
+      "ogTags": {
+        "og:title": "MACAUTION — Récupérez votre dépôt de garantie",
+        "og:description": "Votre bailleur retient votre caution ? Notre IA détecte les retenues abusives et calcule le montant récupérable.",
+        "og:url": "https://recupeo.fr/macaution",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO",
+        "og:type": "website"
+      },
+      "externalLinks": 0,
+      "htmlSize": "44KB"
+    },
+    {
+      "path": "/retraitia",
+      "url": "http://localhost:3000/retraitia",
+      "errors": [],
+      "warnings": [
+        "CODE: No GA4 tracking (track()) found"
+      ],
+      "info": [],
+      "httpStatus": 200,
+      "title": "Erreur pension retraite ? Vérifiez gratuitement | RÉCUPÉO",
+      "linksCount": 21,
+      "imagesCount": 2,
+      "buttonsCount": 14,
+      "inputsCount": 1,
+      "anchorsCount": 5,
+      "ogTags": {
+        "og:title": "RETRAITIA — Votre pension est-elle correcte ?",
+        "og:description": "1 pension sur 7 contient une erreur au détriment du retraité. Vérifiez la vôtre gratuitement.",
+        "og:url": "https://recupeo.fr/retraitia",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO",
+        "og:type": "website"
+      },
+      "externalLinks": 0,
+      "htmlSize": "48KB"
+    },
+    {
+      "path": "/monloyer",
+      "url": "http://localhost:3000/monloyer",
+      "errors": [],
+      "warnings": [
+        "CODE: No GA4 tracking (track()) found"
+      ],
+      "info": [],
+      "httpStatus": 200,
+      "title": "Votre loyer est-il trop cher ? Vérifiez gratuitement | RÉCUPÉO",
+      "linksCount": 21,
+      "imagesCount": 2,
+      "buttonsCount": 36,
+      "inputsCount": 7,
+      "anchorsCount": 6,
+      "ogTags": {
+        "og:title": "MONLOYER — Votre loyer est-il trop cher ?",
+        "og:description": "30 à 37% des annonces ne respectent pas l&#x27;encadrement des loyers. Vérifiez gratuitement et calculez le montant récupérable.",
+        "og:url": "https://recupeo.fr/monloyer",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO",
+        "og:type": "website"
+      },
+      "externalLinks": 0,
+      "htmlSize": "57KB"
+    },
+    {
+      "path": "/mataxe",
+      "url": "http://localhost:3000/mataxe",
+      "errors": [],
+      "warnings": [
+        "CODE: No GA4 tracking (track()) found"
+      ],
+      "info": [],
+      "httpStatus": 200,
+      "title": "Taxe foncière trop élevée ? Vérifiez gratuitement | RÉCUPÉO",
+      "linksCount": 20,
+      "imagesCount": 2,
+      "buttonsCount": 15,
+      "inputsCount": 0,
+      "anchorsCount": 2,
+      "ogTags": {
+        "og:title": "MATAXE — Votre taxe foncière est-elle trop élevée ?",
+        "og:description": "40% des avis contiennent une erreur de base cadastrale. Vérifiez gratuitement et récupérez jusqu&#x27;à 4 ans de trop-perçu.",
+        "og:url": "https://recupeo.fr/mataxe",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO",
+        "og:type": "website"
+      },
+      "externalLinks": 0,
+      "htmlSize": "47KB"
+    },
+    {
+      "path": "/mapension",
+      "url": "http://localhost:3000/mapension",
+      "errors": [],
+      "warnings": [
+        "CODE: No GA4 tracking (track()) found"
+      ],
+      "info": [],
+      "httpStatus": 200,
+      "title": "Pension alimentaire : calculez ce qu'on vous doit | RÉCUPÉO",
+      "linksCount": 18,
+      "imagesCount": 2,
+      "buttonsCount": 24,
+      "inputsCount": 5,
+      "anchorsCount": 5,
+      "ogTags": {
+        "og:title": "RÉCUPÉO — L&#x27;IA qui récupère ce qu&#x27;on vous doit",
+        "og:description": "Uploadez vos documents. Notre IA détecte les erreurs et génère les courriers pour récupérer votre argent.",
+        "og:url": "https://recupeo.fr",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO — Uploadez. Vérifiez. Récupérez.",
+        "og:type": "website"
+      },
+      "externalLinks": 0,
+      "htmlSize": "47KB"
+    },
+    {
+      "path": "/mabanque",
+      "url": "http://localhost:3000/mabanque",
+      "errors": [],
+      "warnings": [
+        "CODE: No GA4 tracking (track()) found"
+      ],
+      "info": [],
+      "httpStatus": 200,
+      "title": "Frais bancaires abusifs ? Vérifiez gratuitement vos plafonds | RÉCUPÉO",
+      "linksCount": 18,
+      "imagesCount": 2,
+      "buttonsCount": 14,
+      "inputsCount": 1,
+      "anchorsCount": 5,
+      "ogTags": {
+        "og:title": "RÉCUPÉO — L&#x27;IA qui récupère ce qu&#x27;on vous doit",
+        "og:description": "Uploadez vos documents. Notre IA détecte les erreurs et génère les courriers pour récupérer votre argent.",
+        "og:url": "https://recupeo.fr",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO — Uploadez. Vérifiez. Récupérez.",
+        "og:type": "website"
+      },
+      "externalLinks": 0,
+      "htmlSize": "45KB"
+    },
+    {
+      "path": "/monchomage",
+      "url": "http://localhost:3000/monchomage",
+      "errors": [],
+      "warnings": [
+        "CODE: No GA4 tracking (track()) found"
+      ],
+      "info": [],
+      "httpStatus": 200,
+      "title": "Allocation chômage mal calculée ? Vérifiez gratuitement | RÉCUPÉO",
+      "linksCount": 18,
+      "imagesCount": 2,
+      "buttonsCount": 14,
+      "inputsCount": 1,
+      "anchorsCount": 5,
+      "ogTags": {
+        "og:title": "RÉCUPÉO — L&#x27;IA qui récupère ce qu&#x27;on vous doit",
+        "og:description": "Uploadez vos documents. Notre IA détecte les erreurs et génère les courriers pour récupérer votre argent.",
+        "og:url": "https://recupeo.fr",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO — Uploadez. Vérifiez. Récupérez.",
+        "og:type": "website"
+      },
+      "externalLinks": 0,
+      "htmlSize": "45KB"
+    },
+    {
+      "path": "/avis",
+      "url": "http://localhost:3000/avis",
+      "errors": [],
+      "warnings": [
+        "CODE: Missing CrossSellBriques component",
+        "CODE: Missing LegalDisclaimer component"
+      ],
+      "info": [
+        "CODE: Missing TrustBanner component",
+        "CODE: Missing FAQ component"
+      ],
+      "httpStatus": 200,
+      "title": "Avis clients — RÉCUPÉO",
+      "linksCount": 14,
+      "imagesCount": 2,
+      "buttonsCount": 3,
+      "inputsCount": 0,
+      "anchorsCount": 1,
+      "ogTags": {
+        "og:title": "Avis clients — RÉCUPÉO",
+        "og:description": "Des centaines de Français ont déjà récupéré leur argent. Découvrez leurs avis.",
+        "og:url": "https://recupeo.fr/avis",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO"
+      },
+      "externalLinks": 0,
+      "htmlSize": "19KB"
+    },
+    {
+      "path": "/connexion",
+      "url": "http://localhost:3000/connexion",
+      "errors": [],
+      "warnings": [
+        "CODE: No layout.tsx (using parent layout)",
+        "CODE: No GA4 tracking (track()) found",
+        "CODE: Missing CrossSellBriques component",
+        "CODE: Missing LegalDisclaimer component"
+      ],
+      "info": [
+        "CODE: Missing TrustBanner component",
+        "CODE: Missing FAQ component"
+      ],
+      "httpStatus": 200,
+      "title": "RÉCUPÉO — L'IA qui récupère ce qu'on vous doit",
+      "linksCount": 14,
+      "imagesCount": 2,
+      "buttonsCount": 3,
+      "inputsCount": 0,
+      "anchorsCount": 1,
+      "ogTags": {
+        "og:title": "RÉCUPÉO — L&#x27;IA qui récupère ce qu&#x27;on vous doit",
+        "og:description": "Uploadez vos documents. Notre IA détecte les erreurs et génère les courriers pour récupérer votre argent.",
+        "og:url": "https://recupeo.fr",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO — Uploadez. Vérifiez. Récupérez.",
+        "og:type": "website"
+      },
+      "externalLinks": 0,
+      "htmlSize": "19KB"
+    },
+    {
+      "path": "/mentions-legales",
+      "url": "http://localhost:3000/mentions-legales",
+      "errors": [],
+      "warnings": [
+        "CODE: No layout.tsx (using parent layout)",
+        "CODE: No GA4 tracking (track()) found",
+        "CODE: Missing CrossSellBriques component",
+        "CODE: Missing LegalDisclaimer component"
+      ],
+      "info": [
+        "CODE: Missing TrustBanner component",
+        "CODE: Missing FAQ component"
+      ],
+      "httpStatus": 200,
+      "title": "Mentions légales — RÉCUPÉO",
+      "linksCount": 18,
+      "imagesCount": 2,
+      "buttonsCount": 3,
+      "inputsCount": 0,
+      "anchorsCount": 1,
+      "ogTags": {
+        "og:title": "RÉCUPÉO — L&#x27;IA qui récupère ce qu&#x27;on vous doit",
+        "og:description": "Uploadez vos documents. Notre IA détecte les erreurs et génère les courriers pour récupérer votre argent.",
+        "og:url": "https://recupeo.fr",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO — Uploadez. Vérifiez. Récupérez.",
+        "og:type": "website"
+      },
+      "externalLinks": 1,
+      "htmlSize": "29KB"
+    },
+    {
+      "path": "/cgu",
+      "url": "http://localhost:3000/cgu",
+      "errors": [],
+      "warnings": [
+        "CODE: No layout.tsx (using parent layout)",
+        "CODE: No GA4 tracking (track()) found",
+        "CODE: Missing CrossSellBriques component",
+        "CODE: Missing LegalDisclaimer component"
+      ],
+      "info": [
+        "CODE: Missing TrustBanner component",
+        "CODE: Missing FAQ component"
+      ],
+      "httpStatus": 200,
+      "title": "Conditions Générales d'Utilisation et de Vente — RÉCUPÉO",
+      "linksCount": 19,
+      "imagesCount": 2,
+      "buttonsCount": 3,
+      "inputsCount": 0,
+      "anchorsCount": 1,
+      "ogTags": {
+        "og:title": "RÉCUPÉO — L&#x27;IA qui récupère ce qu&#x27;on vous doit",
+        "og:description": "Uploadez vos documents. Notre IA détecte les erreurs et génère les courriers pour récupérer votre argent.",
+        "og:url": "https://recupeo.fr",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO — Uploadez. Vérifiez. Récupérez.",
+        "og:type": "website"
+      },
+      "externalLinks": 1,
+      "htmlSize": "36KB"
+    },
+    {
+      "path": "/confidentialite",
+      "url": "http://localhost:3000/confidentialite",
+      "errors": [],
+      "warnings": [
+        "CODE: No layout.tsx (using parent layout)",
+        "CODE: No GA4 tracking (track()) found",
+        "CODE: Missing CrossSellBriques component",
+        "CODE: Missing LegalDisclaimer component"
+      ],
+      "info": [
+        "CODE: Missing TrustBanner component",
+        "CODE: Missing FAQ component"
+      ],
+      "httpStatus": 200,
+      "title": "Politique de confidentialité — RÉCUPÉO",
+      "linksCount": 20,
+      "imagesCount": 2,
+      "buttonsCount": 3,
+      "inputsCount": 0,
+      "anchorsCount": 1,
+      "ogTags": {
+        "og:title": "RÉCUPÉO — L&#x27;IA qui récupère ce qu&#x27;on vous doit",
+        "og:description": "Uploadez vos documents. Notre IA détecte les erreurs et génère les courriers pour récupérer votre argent.",
+        "og:url": "https://recupeo.fr",
+        "og:site_name": "RÉCUPÉO",
+        "og:locale": "fr_FR",
+        "og:image": "https://recupeo.fr/api/og",
+        "og:image:width": "1200",
+        "og:image:height": "630",
+        "og:image:alt": "RÉCUPÉO — Uploadez. Vérifiez. Récupérez.",
+        "og:type": "website"
+      },
+      "externalLinks": 1,
+      "htmlSize": "44KB"
+    }
+  ],
+  "api": [
+    {
+      "path": "/api/auth/dashboard",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/dashboard/route.ts",
+      "getStatus": 401
+    },
+    {
+      "path": "/api/auth/delete",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/delete/route.ts"
+    },
+    {
+      "path": "/api/auth/demarche",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/demarche/route.ts"
+    },
+    {
+      "path": "/api/auth/diagnostics",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/diagnostics/route.ts",
+      "getStatus": 401
+    },
+    {
+      "path": "/api/auth/export",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/export/route.ts",
+      "getStatus": 401
+    },
+    {
+      "path": "/api/auth/logout",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/logout/route.ts"
+    },
+    {
+      "path": "/api/auth/magic-link",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/magic-link/route.ts"
+    },
+    {
+      "path": "/api/auth/me",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/me/route.ts",
+      "getStatus": 200
+    },
+    {
+      "path": "/api/auth/profile",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/profile/route.ts",
+      "getStatus": 401
+    },
+    {
+      "path": "/api/auth/referral",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/referral/route.ts",
+      "getStatus": 401
+    },
+    {
+      "path": "/api/auth/verify",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/auth/verify/route.ts",
+      "getStatus": 307
+    },
+    {
+      "path": "/api/chat",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/chat/route.ts"
+    },
+    {
+      "path": "/api/mabanque/extract",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mabanque/extract/route.ts"
+    },
+    {
+      "path": "/api/mabanque/full-report",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mabanque/full-report/route.ts"
+    },
+    {
+      "path": "/api/mabanque/generate-letters",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mabanque/generate-letters/route.ts"
+    },
+    {
+      "path": "/api/mabanque/pre-diagnostic",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mabanque/pre-diagnostic/route.ts"
+    },
+    {
+      "path": "/api/macaution/extract",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/macaution/extract/route.ts"
+    },
+    {
+      "path": "/api/macaution/full-report",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/macaution/full-report/route.ts"
+    },
+    {
+      "path": "/api/macaution/generate-letters",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/macaution/generate-letters/route.ts"
+    },
+    {
+      "path": "/api/macaution/generate-pdf",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/macaution/generate-pdf/route.ts"
+    },
+    {
+      "path": "/api/macaution/pre-diagnostic",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/macaution/pre-diagnostic/route.ts"
+    },
+    {
+      "path": "/api/mapension/calculate",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mapension/calculate/route.ts"
+    },
+    {
+      "path": "/api/mapension/full-report",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mapension/full-report/route.ts"
+    },
+    {
+      "path": "/api/mapension/generate-letters",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mapension/generate-letters/route.ts"
+    },
+    {
+      "path": "/api/mataxe/extract",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mataxe/extract/route.ts"
+    },
+    {
+      "path": "/api/mataxe/full-report",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mataxe/full-report/route.ts"
+    },
+    {
+      "path": "/api/mataxe/generate-letters",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mataxe/generate-letters/route.ts"
+    },
+    {
+      "path": "/api/mataxe/generate-pdf",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mataxe/generate-pdf/route.ts"
+    },
+    {
+      "path": "/api/mataxe/pre-diagnostic",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mataxe/pre-diagnostic/route.ts"
+    },
+    {
+      "path": "/api/mataxe/send-recap",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/mataxe/send-recap/route.ts"
+    },
+    {
+      "path": "/api/monchomage/extract",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monchomage/extract/route.ts"
+    },
+    {
+      "path": "/api/monchomage/full-report",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monchomage/full-report/route.ts"
+    },
+    {
+      "path": "/api/monchomage/generate-letters",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monchomage/generate-letters/route.ts"
+    },
+    {
+      "path": "/api/monchomage/pre-diagnostic",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monchomage/pre-diagnostic/route.ts"
+    },
+    {
+      "path": "/api/monimpot/extract",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monimpot/extract/route.ts"
+    },
+    {
+      "path": "/api/monimpot/full-report",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monimpot/full-report/route.ts"
+    },
+    {
+      "path": "/api/monimpot/generate-letters",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monimpot/generate-letters/route.ts"
+    },
+    {
+      "path": "/api/monimpot/generate-pdf",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monimpot/generate-pdf/route.ts"
+    },
+    {
+      "path": "/api/monimpot/pre-diagnostic",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monimpot/pre-diagnostic/route.ts"
+    },
+    {
+      "path": "/api/monloyer/check",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monloyer/check/route.ts"
+    },
+    {
+      "path": "/api/monloyer/generate-letters",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monloyer/generate-letters/route.ts"
+    },
+    {
+      "path": "/api/monloyer/generate-pdf",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/monloyer/generate-pdf/route.ts"
+    },
+    {
+      "path": "/api/og",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/og/route.tsx",
+      "getStatus": 200
+    },
+    {
+      "path": "/api/payment/create",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/payment/create/route.ts"
+    },
+    {
+      "path": "/api/retraitia/extract",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/retraitia/extract/route.ts"
+    },
+    {
+      "path": "/api/retraitia/full-report",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/retraitia/full-report/route.ts"
+    },
+    {
+      "path": "/api/retraitia/generate-letters",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/retraitia/generate-letters/route.ts"
+    },
+    {
+      "path": "/api/retraitia/generate-pdf",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/retraitia/generate-pdf/route.ts"
+    },
+    {
+      "path": "/api/retraitia/pre-diagnostic",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/retraitia/pre-diagnostic/route.ts"
+    },
+    {
+      "path": "/api/retraitia/preview",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/retraitia/preview/route.ts",
+      "getStatus": 400
+    },
+    {
+      "path": "/api/reviews/list",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/reviews/list/route.ts",
+      "getStatus": 200
+    },
+    {
+      "path": "/api/reviews/request",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/reviews/request/route.ts"
+    },
+    {
+      "path": "/api/reviews/stats",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/reviews/stats/route.ts",
+      "getStatus": 200
+    },
+    {
+      "path": "/api/reviews/submit",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/reviews/submit/route.ts"
+    },
+    {
+      "path": "/api/stats/aggregate",
+      "methods": [
+        "GET"
+      ],
+      "file": "/var/www/recupeo/src/app/api/stats/aggregate/route.ts",
+      "getStatus": 200
+    },
+    {
+      "path": "/api/webhooks/stripe",
+      "methods": [
+        "POST"
+      ],
+      "file": "/var/www/recupeo/src/app/api/webhooks/stripe/route.ts"
+    }
+  ],
+  "links": [
+    {
+      "from": "/",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/monchomage",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/mabanque",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/monimpot",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/monimpot",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/monimpot",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/monimpot",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/monimpot",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/monimpot",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/monimpot",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/monimpot",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/monimpot",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/monimpot",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/macaution",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/macaution",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/macaution",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/macaution",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/macaution",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/macaution",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/macaution",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/macaution",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/macaution",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/retraitia",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/retraitia",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/retraitia",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/retraitia",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/retraitia",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/retraitia",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/retraitia",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/retraitia",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/retraitia",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/monloyer",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/monloyer",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/monloyer",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/monloyer",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/monloyer",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/monloyer",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/monloyer",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/monloyer",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/monloyer",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/mataxe",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/mataxe",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/mataxe",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/mataxe",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/mataxe",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/mataxe",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/mataxe",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/mataxe",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/mataxe",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/mapension",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/mapension",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/mapension",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/mapension",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/mapension",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/mapension",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/mapension",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/mapension",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/mapension",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/mabanque",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/mabanque",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/mabanque",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/mabanque",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/mabanque",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/mabanque",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/mabanque",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/mabanque",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/mabanque",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/monchomage",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/monchomage",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/monchomage",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/monchomage",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/monchomage",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/monchomage",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/monchomage",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/monchomage",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/monchomage",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/avis",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/avis",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/avis",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/avis",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/avis",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/avis",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/avis",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/avis",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/avis",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/connexion",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/connexion",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/connexion",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/connexion",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/connexion",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/connexion",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/connexion",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/connexion",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/connexion",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/mentions-legales",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/mentions-legales",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/mentions-legales",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/mentions-legales",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/mentions-legales",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/mentions-legales",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/mentions-legales",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/mentions-legales",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/mentions-legales",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/cgu",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/cgu",
+      "to": "/confidentialite",
+      "status": 200
+    },
+    {
+      "from": "/cgu",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/cgu",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/cgu",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/cgu",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/cgu",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/cgu",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/cgu",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/confidentialite",
+      "to": "/",
+      "status": 200
+    },
+    {
+      "from": "/confidentialite",
+      "to": "/mentions-legales",
+      "status": 200
+    },
+    {
+      "from": "/confidentialite",
+      "to": "/cgu",
+      "status": 200
+    },
+    {
+      "from": "/confidentialite",
+      "to": "/macaution",
+      "status": 200
+    },
+    {
+      "from": "/confidentialite",
+      "to": "/retraitia",
+      "status": 200
+    },
+    {
+      "from": "/confidentialite",
+      "to": "/monloyer",
+      "status": 200
+    },
+    {
+      "from": "/confidentialite",
+      "to": "/mataxe",
+      "status": 200
+    },
+    {
+      "from": "/confidentialite",
+      "to": "/mapension",
+      "status": 200
+    },
+    {
+      "from": "/confidentialite",
+      "to": "/confidentialite",
+      "status": 200
+    }
+  ],
+  "source": [
+    {
+      "severity": "WARN",
+      "file": "components/landing/Pricing.tsx",
+      "msg": "Hardcoded price without fmt()"
+    },
+    {
+      "severity": "WARN",
+      "file": "components/mataxe/MataxeBaseNetteHelper.tsx",
+      "msg": "Hardcoded price without fmt()"
+    },
+    {
+      "severity": "WARN",
+      "file": "components/mataxe/MataxeMethode.tsx",
+      "msg": "Hardcoded price without fmt()"
+    },
+    {
+      "severity": "WARN",
+      "file": "components/shared/CrossSellBriques.tsx",
+      "msg": "Hardcoded price without fmt()"
+    }
+  ],
+  "summary": {}
+}

@@ -1,0 +1,114 @@
+{
+  "comment": "Adresses des CARSAT régionales pour les LRAR. Source: lassuranceretraite.fr",
+  "data": [
+    {
+      "region": "Île-de-France",
+      "nom": "CNAV Île-de-France",
+      "adresse": "75951 Paris Cedex 19"
+    },
+    {
+      "region": "Rhône-Alpes",
+      "nom": "CARSAT Rhône-Alpes",
+      "adresse": "35 rue Maurice Flandin, 69436 Lyon Cedex 03"
+    },
+    {
+      "region": "PACA",
+      "nom": "CARSAT Sud-Est",
+      "adresse": "35 rue George, 13386 Marseille Cedex 20"
+    },
+    {
+      "region": "Nord-Picardie",
+      "nom": "CARSAT Nord-Picardie",
+      "adresse": "11 allée Vauban, 59662 Villeneuve-d'Ascq Cedex"
+    },
+    {
+      "region": "Normandie",
+      "nom": "CARSAT Normandie",
+      "adresse": "Avenue du Grand Cours, 76028 Rouen Cedex"
+    },
+    {
+      "region": "Bretagne",
+      "nom": "CARSAT Bretagne",
+      "adresse": "236 rue de Châteaugiron, 35030 Rennes Cedex 9"
+    },
+    {
+      "region": "Pays de la Loire",
+      "nom": "CARSAT Pays de la Loire",
+      "adresse": "2 place de Bretagne, 44932 Nantes Cedex 9"
+    },
+    {
+      "region": "Centre-Val de Loire",
+      "nom": "CARSAT Centre-Val de Loire",
+      "adresse": "36028 Châteauroux Cedex"
+    },
+    {
+      "region": "Bourgogne-Franche-Comté",
+      "nom": "CARSAT Bourgogne-FC",
+      "adresse": "38 rue de Cracovie, 21044 Dijon Cedex"
+    },
+    {
+      "region": "Grand-Est",
+      "nom": "CARSAT Nord-Est",
+      "adresse": "81 à 85 rue de Metz, 54073 Nancy Cedex"
+    },
+    {
+      "region": "Alsace-Moselle",
+      "nom": "CARSAT Alsace-Moselle",
+      "adresse": "36 rue du Doubs, 67011 Strasbourg Cedex"
+    },
+    {
+      "region": "Nouvelle-Aquitaine",
+      "nom": "CARSAT Aquitaine",
+      "adresse": "80 avenue de la Jallère, 33053 Bordeaux Cedex"
+    },
+    {
+      "region": "Occitanie-Toulouse",
+      "nom": "CARSAT Midi-Pyrénées",
+      "adresse": "2 rue Georges Vivent, 31065 Toulouse Cedex 9"
+    },
+    {
+      "region": "Auvergne",
+      "nom": "CARSAT Auvergne",
+      "adresse": "63036 Clermont-Ferrand Cedex 9"
+    },
+    {
+      "region": "Occitanie-Montpellier",
+      "nom": "CARSAT Languedoc-Roussillon",
+      "adresse": "29 cours Gambetta, 34068 Montpellier Cedex 2"
+    },
+    {
+      "region": "Guadeloupe",
+      "nom": "CGSS Guadeloupe",
+      "adresse": "97159 Pointe-à-Pitre Cedex"
+    },
+    {
+      "region": "Martinique",
+      "nom": "CGSS Martinique",
+      "adresse": "97210 Le Lamentin"
+    },
+    {
+      "region": "Guyane",
+      "nom": "CGSS Guyane",
+      "adresse": "97306 Cayenne Cedex"
+    },
+    {
+      "region": "Réunion",
+      "nom": "CGSS Réunion",
+      "adresse": "97488 Saint-Denis Cedex"
+    }
+  ],
+  "mediateurs": [
+    {
+      "organisme": "Assurance Retraite",
+      "adresse": "36 rue de Valmy, 93108 Montreuil Cedex"
+    },
+    {
+      "organisme": "Agirc-Arrco",
+      "adresse": "16-18 rue Jules César, 75592 Paris Cedex 12"
+    },
+    {
+      "organisme": "SRE / CNRACL",
+      "adresse": "Défenseur des droits — Libre réponse 71120, 75342 Paris Cedex 07"
+    }
+  ]
+}
