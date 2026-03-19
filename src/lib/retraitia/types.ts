@@ -223,6 +223,122 @@ export interface FormCarriere {
   pensionBaseBrute?: number
   pensionComplementaireBrute?: number
   totalPensionsMensuelles?: number
+  // Champs specifiques pre-retraite
+  salaireBrutMensuel?: number              // salaire actuel (estimation SAM futur)
+  anneesEtudesSupérieures?: number         // rachat de trimestres
+  ageDepartSouhaite?: number               // 60-67
+  tempsPartielPrevu?: boolean              // retraite progressive
+  cumulEmploiPrevu?: boolean               // cumul emploi-retraite
+}
+
+// ─────────────────────────────────────────────
+// Simulation pre-retraite
+// ─────────────────────────────────────────────
+
+/** Scenario de depart a un age donne */
+export interface ScenarioDepart {
+  age: number
+  annee: number
+  trimestresTotal: number
+  trimestresRequis: number
+  trimestresManquants: number
+  taux: number                    // % (ex: 50, 47.5)
+  decotePct: number               // 0 si taux plein
+  surcotePct: number              // 0 si pas de surcote
+  pensionBaseMensuelle: number
+  pensionComplementaireMensuelle: number
+  pensionTotaleMensuelle: number
+  recommande?: boolean
+  note?: string
+}
+
+/** Resultat de la simulation multi-scenarios */
+export interface SimulationResult {
+  scenarios: ScenarioDepart[]
+  scenarioRecommande?: ScenarioDepart
+  trimestresActuels: number
+  ageTauxPlein: number
+  anneeTauxPlein: number
+}
+
+/** Scenario de rachat de trimestres */
+export interface ScenarioRachat {
+  nbTrimestres: number
+  option: 'taux' | 'taux_duree'
+  coutEstime: number
+  gainMensuel: number
+  tempsRetourAnnees: number
+  rentable: boolean
+  ageRentabilite?: number
+}
+
+/** Resultat de l'analyse rachat */
+export interface RachatResult {
+  trimestresManquants: number
+  trimestresRachetables: number       // max 12 (etudes) ou trimestres manquants
+  anneesEtudes: number
+  scenarios: ScenarioRachat[]
+  recommandation: string
+}
+
+// ─────────────────────────────────────────────
+// Reversion
+// ─────────────────────────────────────────────
+
+/** Informations sur le conjoint decede */
+export interface DefuntInfo {
+  prenom: string
+  nom: string
+  nir: string                       // N SS du defunt
+  dateNaissance?: string
+  dateDeces: string
+  etaitRetraite: boolean
+  pensionBase?: number              // mensuelle brute
+  pensionComplementaire?: number    // mensuelle brute
+  regimes: BaseRegime[]
+  regimesComplementaires?: ComplementaryRegime[]
+  polypensionne: boolean
+}
+
+/** Informations sur le conjoint survivant */
+export interface SurvivantInfo {
+  estRetraite: boolean
+  pensionPropre?: number            // mensuelle brute
+  ressourcesAnnuelles: number       // revenus hors reversion
+  remarie: boolean
+  pacse?: boolean                   // perte pour FP
+  enfantsACharge: number            // <21 ans
+  dateMariage: string               // avec le defunt
+}
+
+/** Eligibilite et estimation pour un regime */
+export interface ReversionRegime {
+  regime: string                    // 'cnav', 'agirc_arrco', 'sre', 'cnracl', etc.
+  label: string
+  taux: number                      // 50%, 54%, 60%
+  conditionRessources: boolean
+  conditionAge: boolean
+  conditionAgeMin?: number
+  conditionMariage: boolean
+  conditionMariageDureeMin?: number // annees
+  eligible: boolean
+  motifIneligibilite?: string
+  montantEstime: { min: number; max: number }
+  retroactiviteMois: number         // mois de retroactivite possibles
+  retroactiviteIllimitee: boolean   // FP
+  canal: string                     // 'info-retraite.fr', 'agirc-arrco.fr', etc.
+  status: 'todo' | 'sent' | 'waiting' | 'granted' | 'refused' | 'contested'
+}
+
+/** Resultat complet de l'analyse reversion */
+export interface ReversionResult {
+  eligibleGlobal: boolean
+  regimes: ReversionRegime[]
+  totalEstimeMensuel: { min: number; max: number }
+  retroactiviteTotale: { min: number; max: number }
+  alerteRemariage: boolean
+  alerteRetroactivite: boolean      // si deces > 12 mois
+  moisDepuisDeces: number
 }
 
 /** Formulaire complet V2 (3 blocs / 16 questions) */

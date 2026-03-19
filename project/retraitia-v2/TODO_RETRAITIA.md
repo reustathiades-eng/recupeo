@@ -1,6 +1,6 @@
 # TODO_RETRAITIA — Backlog priorisé
 
-**Dernière mise à jour :** 2026-03-19
+**Dernière mise à jour :** 2026-03-19 — 111/111 tâches (100%)
 
 ---
 
@@ -161,10 +161,10 @@ Après le MVP, ajout des régimes et parcours supplémentaires.
 
 | # | Tâche | Brief | Statut |
 |---|-------|-------|--------|
-| T210 | Simulation multi-scénarios (62-67 ans) | MOTEUR_CALCUL #8 | 🔴 |
-| T211 | Simulation rachat de trimestres + ROI | MOTEUR_CALCUL #8 | 🔴 |
-| T212 | Estimation <55 ans (sans EIG) | PARCOURS_PRERETRAITE #3 | 🔴 |
-| T213 | Page rapport pré-retraité (variante PDF) | RAPPORT_PDF #11 | 🔴 |
+| T210 | Simulation multi-scénarios (62-67 ans) | MOTEUR_CALCUL #8 | ✅ |
+| T211 | Simulation rachat de trimestres + ROI | MOTEUR_CALCUL #8 | ✅ |
+| T212 | Estimation <55 ans (sans EIG) | PARCOURS_PRERETRAITE #3 | ✅ |
+| T213 | Page rapport pré-retraité (variante PDF) | RAPPORT_PDF #11 | ✅ |
 | T214 | Email rappel annuel (S14) | EMAILS_RELANCES #14 | ✅ |
 | T215 | Email upsell départ (S15) | EMAILS_RELANCES #14 | ✅ |
 
@@ -172,20 +172,20 @@ Après le MVP, ajout des régimes et parcours supplémentaires.
 
 | # | Tâche | Brief | Statut |
 |---|-------|-------|--------|
-| T220 | Formulaire réversion (conjoint décédé) | PARCOURS_REVERSION #4 | 🔴 |
-| T221 | Calcul éligibilité réversion par régime | MOTEUR_CALCUL #8 | 🔴 |
-| T222 | Messages de demande de réversion par régime | MESSAGES_ACTIONS #12 | 🔴 |
-| T223 | Page rapport réversion (variante PDF) | RAPPORT_PDF #11 | 🔴 |
+| T220 | Formulaire réversion (conjoint décédé) | PARCOURS_REVERSION #4 | ✅ |
+| T221 | Calcul éligibilité réversion par régime | MOTEUR_CALCUL #8 | ✅ |
+| T222 | Messages de demande de réversion par régime | MESSAGES_ACTIONS #12 | ✅ |
+| T223 | Page rapport réversion (variante PDF) | RAPPORT_PDF #11 | ✅ |
 | T224 | Adaptation ton sobre (emails + UX) | EMAILS_RELANCES #14 | ✅ |
 
 ### 2.4 Pack Couple
 
 | # | Tâche | Brief | Statut |
 |---|-------|-------|--------|
-| T230 | Paiement 79€ (Stripe) | MASTER #1 | 🔴 |
-| T231 | Sélecteur couple dans l'espace client | ESPACE_CLIENT #13 | 🔴 |
-| T232 | Vue résumé couple (tableau de bord) | ESPACE_CLIENT #13 | 🔴 |
-| T233 | 2 rapports PDF (un par personne) | RAPPORT_PDF #11 | 🔴 |
+| T230 | Paiement 79€ (Stripe) | MASTER #1 | ✅ |
+| T231 | Sélecteur couple dans l espace client | ESPACE_CLIENT #13 | ✅ |
+| T232 | Vue résumé couple (tableau de bord) | ESPACE_CLIENT #13 | ✅ |
+| T233 | 2 rapports PDF (un par personne) | RAPPORT_PDF #11 | ✅ |
 
 ---
 
@@ -195,33 +195,33 @@ Après le MVP, ajout des régimes et parcours supplémentaires.
 
 | # | Tâche | Brief | Statut |
 |---|-------|-------|--------|
-| T300 | Intégration API envoi LRAR (Maileva ou AR24) | MESSAGES_ACTIONS #12 | 🔴 |
-| T301 | Paiement 14,90€ par LRAR (Stripe) | MASTER #1 | 🔴 |
-| T302 | Génération PDF LRAR (pdfkit) | MESSAGES_ACTIONS #12 | 🔴 |
-| T303 | Suivi de réception AR | MESSAGES_ACTIONS #12 | 🔴 |
+| T300 | Intégration API envoi LRAR (Maileva ou AR24) | MESSAGES_ACTIONS #12 | ✅ |
+| T301 | Paiement 14,90€ par LRAR (Stripe) | MASTER #1 | ✅ |
+| T302 | Génération PDF LRAR (pdfkit) | MESSAGES_ACTIONS #12 | ✅ |
+| T303 | Suivi de réception AR | MESSAGES_ACTIONS #12 | ✅ |
 
 ### 3.2 Export tribunal
 
 | # | Tâche | Brief | Statut |
 |---|-------|-------|--------|
-| T310 | Paiement Pack Tribunal 29€ | MASTER #1 | 🔴 |
-| T311 | Génération ZIP (docs + courriers + chronologie) | ESPACE_CLIENT #13 | 🔴 |
-| T312 | PDF chronologie du dossier | ESPACE_CLIENT #13 | 🔴 |
+| T310 | Paiement Pack Tribunal 29€ | MASTER #1 | ✅ |
+| T311 | Génération ZIP (docs + courriers + chronologie) | ESPACE_CLIENT #13 | ✅ |
+| T312 | PDF chronologie du dossier | ESPACE_CLIENT #13 | ✅ |
 
 ### 3.3 Cross-sell
 
 | # | Tâche | Brief | Statut |
 |---|-------|-------|--------|
-| T320 | Détection opportunités N4/N5 | ANOMALY_DETECTION #9 | 🔴 |
-| T321 | Encadré cross-sell espace client | ESPACE_CLIENT #13 | 🔴 |
+| T320 | Détection opportunités N4/N5 | ANOMALY_DETECTION #9 | ✅ |
+| T321 | Encadré cross-sell espace client | ESPACE_CLIENT #13 | ✅ |
 | T322 | Email cross-sell (S12) | EMAILS_RELANCES #14 | ✅ |
 
 ### 3.4 Notifications
 
 | # | Tâche | Brief | Statut |
 |---|-------|-------|--------|
-| T330 | Système de notifications in-app | ESPACE_CLIENT #13 | 🔴 |
-| T331 | Bannière contextuelle tableau de bord | ESPACE_CLIENT #13 | 🔴 |
+| T330 | Système de notifications in-app | ESPACE_CLIENT #13 | ✅ |
+| T331 | Bannière contextuelle tableau de bord | ESPACE_CLIENT #13 | ✅ |
 | T332 | Scheduler cron (emails programmés) | EMAILS_RELANCES #14 | ✅ |
 
 ---
@@ -230,8 +230,12 @@ Après le MVP, ajout des régimes et parcours supplémentaires.
 
 | Priorité | Nb tâches | Statut |
 |----------|----------|--------|
-| P1 — MVP | ~65 | 🟡 48/65 |
-| P2 — Extensions V2 | 22 | 🔴 0/22 |
-| P3 — Avancées | 13 | 🔴 0/13 |
-| **TOTAL** | **~97** | **🟡 48/97** |
+| P1 — MVP | 76 | ✅ 76/76 |
+| P2 — Extensions V2 | 22 | ✅ 22/22 |
+| P3 — Avancées | 13 | ✅ 13/13 |
+| **TOTAL** | **111** | **✅ 111/111 (100%)** |
+
+---
+
+**Dernière mise à jour : 2026-03-19 — Session 8 — TOUTES TÂCHES TERMINÉES**
 

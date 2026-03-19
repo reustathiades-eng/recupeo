@@ -371,9 +371,12 @@ function detectN2Anomalies(out: DetectedAnomaly[], input: DetectionInput) {
 // ─────────────────────────────────────────────
 
 function detectN4Anomalies(out: DetectedAnomaly[], input: DetectionInput) {
-  const { formulaire, extractions } = input
+  const { calcul, formulaire, extractions } = input
   const birthYear = new Date(formulaire.identite.dateNaissance).getFullYear()
   const age = new Date().getFullYear() - birthYear
+
+  // Estimer la pension totale mensuelle
+  const pensionTotale = calcul.pensionTotalRecalculee?.value ?? 0
 
   // N4_EXONERATION_TF
   if (age >= 75 && formulaire.carriere.proprietaire && extractions.avisImposition) {
@@ -383,6 +386,44 @@ function detectN4Anomalies(out: DetectedAnomaly[], input: DetectionInput) {
         { min: 25, max: 170 },
       )
     }
+  }
+
+  // N4_ASPA
+  if (age >= 65 && pensionTotale > 0 && pensionTotale < 1012) {
+    const complement = Math.round(1012 - pensionTotale)
+    pushAnomaly(out, 'N4_ASPA', 'ESTIMATION',
+      `Pension ${Math.round(pensionTotale)}EUR/mois < seuil ASPA 1012EUR — complement possible ~${complement}EUR/mois`,
+      { min: Math.round(complement * 0.5), max: complement },
+    )
+  }
+
+  // N4_CSS (Complementaire Sante Solidaire)
+  if (extractions.avisImposition) {
+    const rfr = extractions.avisImposition.rfr
+    const parts = extractions.avisImposition.nombreParts || 1
+    const plafondCSS = 10166 * parts // approximation 2025
+    if (rfr < plafondCSS) {
+      pushAnomaly(out, 'N4_CSS', 'ESTIMATION',
+        `RFR ${rfr}EUR pour ${parts} part(s) < plafond CSS ${Math.round(plafondCSS)}EUR — eligibilite probable`,
+        { min: 30, max: 60 },
+      )
+    }
+  }
+
+  // N4_APL (si locataire + revenus modestes)
+  if (formulaire.carriere.locataire && pensionTotale > 0 && pensionTotale < 1500) {
+    pushAnomaly(out, 'N4_APL', 'ESTIMATION',
+      `Locataire avec pension modeste — verifier eligibilite APL sur caf.fr`,
+      { min: 50, max: 300 },
+    )
+  }
+
+  // N4_MAPRIME_ADAPT (si 70+ ans et propriétaire)
+  if (age >= 70 && formulaire.carriere.proprietaire) {
+    pushAnomaly(out, 'N4_MAPRIME_ADAPT', 'ESTIMATION',
+      `70+ ans et proprietaire — verifier eligibilite MaPrimeAdapt pour adaptation du logement`,
+      { min: 0, max: 0 },
+    )
   }
 
   // N5_CREDIT_IMPOT_EMPLOI_DOMICILE

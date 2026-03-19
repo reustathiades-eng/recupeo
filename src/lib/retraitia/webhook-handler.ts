@@ -119,6 +119,113 @@ export async function handleRetraitiaPayment(event: PaymentEvent) {
       console.log(`[RETRAITIA] Dossier ${dossier.id} mis à jour (49€)`)
     }
   }
+
+  // ─── Pack Pré-retraité 39€ / 30€ ───
+  if (plan === 'preretraite_39' || plan === 'preretraite_30') {
+    const dossiers = await payload.find({
+      collection: 'retraitia-dossiers',
+      where: { userEmail: { equals: normalizedEmail } },
+      limit: 1,
+    })
+    if (dossiers.docs.length > 0) {
+      const dossier = dossiers.docs[0]
+      const deducted9 = plan === 'preretraite_30'
+      await payload.update({
+        collection: 'retraitia-dossiers',
+        id: dossier.id,
+        data: {
+          pack49Paid: true,
+          pack49PaidAt: new Date().toISOString(),
+          status: (dossier as any).status === 'diagnostic_ready' ? 'report_paid' : (dossier as any).status,
+          paiements: [
+            ...((dossier as any).paiements || []),
+            { pack: plan, amount: deducted9 ? 3000 : 3900, stripeSessionId, paidAt: new Date().toISOString(), deducted9 },
+          ],
+        },
+      })
+      console.log(`[RETRAITIA] Dossier ${dossier.id} mis à jour (preretraite 39€)`)
+    }
+  }
+
+  // ─── Pack Couple 79€ / 70€ : créer 2 dossiers liés ───
+  if (plan === 'couple_79' || plan === 'couple_70') {
+    const coupleId = `couple_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
+    const deducted9 = plan === 'couple_70'
+    const flashData = await getFlashData(payload, diagnosticId, normalizedEmail)
+    const parcours = flashData?.parcours || 'retraite'
+
+    // Dossier 1 (client principal)
+    const existing = await payload.find({
+      collection: 'retraitia-dossiers',
+      where: { userEmail: { equals: normalizedEmail } },
+      limit: 1,
+    })
+
+    let dossier1Id: string
+    if (existing.docs.length > 0) {
+      // Mettre à jour le dossier existant
+      const d = existing.docs[0]
+      await payload.update({
+        collection: 'retraitia-dossiers',
+        id: d.id,
+        data: {
+          coupleId,
+          couplePack: true,
+          pack49Paid: true,
+          pack49PaidAt: new Date().toISOString(),
+          paiements: [
+            ...((d as any).paiements || []),
+            { pack: plan, amount: deducted9 ? 7000 : 7900, stripeSessionId, paidAt: new Date().toISOString(), deducted9 },
+          ],
+        },
+      })
+      dossier1Id = String(d.id)
+    } else {
+      const d1 = await payload.create({
+        collection: 'retraitia-dossiers',
+        data: {
+          userEmail: normalizedEmail,
+          parcours,
+          status: 'created',
+          flashId: diagnosticId !== 'new' ? diagnosticId : undefined,
+          pack9Paid: true,
+          pack9PaidAt: new Date().toISOString(),
+          pack49Paid: true,
+          pack49PaidAt: new Date().toISOString(),
+          coupleId,
+          couplePack: true,
+          documents: buildInitialChecklist(parcours),
+          paiements: [
+            { pack: plan, amount: deducted9 ? 7000 : 7900, stripeSessionId, paidAt: new Date().toISOString(), deducted9 },
+          ],
+        },
+      })
+      dossier1Id = String(d1.id)
+    }
+
+    // Dossier 2 (conjoint) — vide, à remplir
+    const d2 = await payload.create({
+      collection: 'retraitia-dossiers',
+      data: {
+        userEmail: normalizedEmail,
+        clientName: 'Conjoint (à renseigner)',
+        parcours,
+        status: 'created',
+        coupleId,
+        couplePack: true,
+        pack9Paid: true,
+        pack9PaidAt: new Date().toISOString(),
+        pack49Paid: true,
+        pack49PaidAt: new Date().toISOString(),
+        documents: buildInitialChecklist(parcours),
+        paiements: [],
+      },
+    })
+
+    console.log(`[RETRAITIA] Pack couple créé: ${dossier1Id} + ${d2.id} (coupleId: ${coupleId})`)
+
+    await sendBienvenueEmail(normalizedEmail)
+  }
 }
 
 // ─── Helpers ───

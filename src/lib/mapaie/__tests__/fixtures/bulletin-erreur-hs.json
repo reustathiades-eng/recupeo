@@ -1,0 +1,145 @@
+{
+  "id": "bulletin-erreur-hs-002",
+  "meta": {
+    "mois": "2024-02",
+    "employeur": {
+      "nom": "RESTO DU MARCHÉ SARL",
+      "siret": "78934567800014",
+      "conventionCollective": {
+        "idcc": "1979",
+        "libelle": "Hôtels, cafés, restaurants (HCR)",
+        "branche": "HCR"
+      },
+      "adresse": "8 place du Marché, 75011 Paris"
+    },
+    "salarie": {
+      "nom": "DUPONT",
+      "prenom": "Sarah",
+      "numeroSS": "2 91 07 75 456 789 12",
+      "dateEntree": "2022-06-01",
+      "anciennete": {
+        "annees": 1,
+        "mois": 8,
+        "dateReference": "2024-02-01"
+      },
+      "classification": {
+        "niveau": "Niveau II",
+        "echelon": 1,
+        "coefficient": 195,
+        "libelle": "Employé qualifié - Chef de rang"
+      },
+      "contrat": "CDI",
+      "tempsTravail": "39h"
+    }
+  },
+  "remuneration": {
+    "salaireBase": {
+      "tauxHoraire": 12.50,
+      "heuresContractuelles": 169.00,
+      "montant": 2112.50,
+      "commentaire": "ERREUR : taux horaire inférieur au minimum CC HCR niveau II/1 (12.87€ en 2024)"
+    },
+    "heuresSupplementaires": [
+      {
+        "tranche": "25%",
+        "heures": 12,
+        "tauxMajoreApplique": 13.75,
+        "montant": 165.00,
+        "tauxMajoreAttendu": 15.625,
+        "montantAttendu": 187.50,
+        "erreur": "MAJORATION_INCORRECTE",
+        "commentaire": "Majoration 10% appliquée au lieu de 25% — manque 22.50€ sur ces 12h"
+      },
+      {
+        "tranche": "50%",
+        "heures": 6,
+        "tauxMajoreApplique": 0,
+        "montant": 0.00,
+        "tauxMajoreAttendu": 18.75,
+        "montantAttendu": 112.50,
+        "erreur": "HEURES_NON_PAYEES",
+        "commentaire": "6 heures à +50% non rémunérées — manque 112.50€"
+      }
+    ],
+    "primes": [
+      {
+        "libelle": "Avantage en nature repas",
+        "montant": -87.60,
+        "commentaire": "Déduction repas : 4.38€ × 20 jours — conforme"
+      }
+    ],
+    "brutTotal": 2189.90,
+    "brutAttendu": 2412.50,
+    "ecartBrut": -222.60
+  },
+  "cotisations": {
+    "salariales": [
+      { "libelle": "Sécurité sociale maladie", "base": 2189.90, "taux": 0.0000, "montant": 0.00 },
+      { "libelle": "Assurance vieillesse plafonnée", "base": 2189.90, "taux": 0.0690, "montant": 151.10 },
+      { "libelle": "Assurance vieillesse déplafonnée", "base": 2189.90, "taux": 0.0040, "montant": 8.76 },
+      { "libelle": "Complémentaire retraite T1 (AGIRC-ARRCO)", "base": 2189.90, "taux": 0.0315, "montant": 68.98 },
+      { "libelle": "CEG T1", "base": 2189.90, "taux": 0.0086, "montant": 18.83 },
+      { "libelle": "CSG déductible", "base": 2124.20, "taux": 0.0680, "montant": 144.45 },
+      { "libelle": "CSG/CRDS non déductible", "base": 2124.20, "taux": 0.0290, "montant": 61.60 }
+    ],
+    "totalSalarial": 453.72,
+    "patronales": [
+      { "libelle": "Sécurité sociale maladie", "base": 2189.90, "taux": 0.1300, "montant": 284.69 },
+      { "libelle": "Assurance vieillesse plafonnée", "base": 2189.90, "taux": 0.0855, "montant": 187.24 },
+      { "libelle": "Allocations familiales", "base": 2189.90, "taux": 0.0345, "montant": 75.55 },
+      { "libelle": "Accident du travail", "base": 2189.90, "taux": 0.0200, "montant": 43.80 }
+    ],
+    "totalPatronal": 591.28
+  },
+  "netAPayer": {
+    "netAvantImpot": 1736.18,
+    "prelevementSource": {
+      "taux": 0.0750,
+      "montant": 130.21
+    },
+    "netAPayer": 1605.97
+  },
+  "conges": {
+    "acquis": {
+      "periode": "2024-02",
+      "joursAcquis": 2.08,
+      "soldeAnterieur": 5.00,
+      "soldeFinal": 7.08
+    },
+    "pris": {
+      "jours": 0,
+      "montant": 0.00
+    }
+  },
+  "validation": {
+    "statut": "ANOMALIE",
+    "anomalies": [
+      {
+        "code": "HS_MAJORATION_INCORRECTE",
+        "gravite": "HAUTE",
+        "libelle": "Majoration heures supplémentaires incorrecte",
+        "detail": "12h majorées à 10% au lieu de 25% (CC HCR art. 20)",
+        "impactMensuel": 22.50,
+        "impactAnnualise": 270.00
+      },
+      {
+        "code": "HS_NON_PAYEES",
+        "gravite": "CRITIQUE",
+        "libelle": "Heures supplémentaires non rémunérées",
+        "detail": "6h à +50% absentes du bulletin",
+        "impactMensuel": 112.50,
+        "impactAnnualise": 1350.00
+      },
+      {
+        "code": "SALAIRE_BASE_SOUS_MINIMUM_CC",
+        "gravite": "HAUTE",
+        "libelle": "Taux horaire inférieur au minimum conventionnel",
+        "detail": "12.50€/h appliqué vs 12.87€/h minimum CC HCR N2/E1 (2024)",
+        "impactMensuel": 62.53,
+        "impactAnnualise": 750.36
+      }
+    ],
+    "totalImpactMensuel": 197.53,
+    "totalImpactSur3Ans": 7111.08
+  }
+}

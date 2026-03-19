@@ -7,7 +7,7 @@
 import PDFDocument from 'pdfkit'
 import path from 'path'
 import fs from 'fs'
-import type { DiagnosticResult, CalculResult, DossierFormulaire, DossierExtractions, DetectedAnomaly } from '../types'
+import type { DiagnosticResult, CalculResult, DossierFormulaire, DossierExtractions, DetectedAnomaly, SimulationResult, RachatResult, ReportVariant, ReversionResult } from '../types'
 
 const C = {
   navy: '#0B1426', emerald: '#00B377', emeraldDark: '#00996A', emeraldLight: '#E6F9F1',
@@ -44,6 +44,10 @@ interface ReportInput {
   calcul: CalculResult
   extractions: DossierExtractions
   dossierId: string
+  variant?: ReportVariant
+  simulation?: SimulationResult
+  rachat?: RachatResult
+  reversion?: ReversionResult
 }
 
 // ─── Generateur principal ───
@@ -83,6 +87,31 @@ export function generateRetraitiaPDF(input: ReportInput): Buffer {
   doc.addPage()
   drawPageHeader(doc, ref, 'GUIDE D\'ACTION')
   drawActionGuide(doc, diagnostic.anomalies)
+
+  // ── Section 7 : Simulations (pre-retraites uniquement) ──
+  if (input.variant === 'preretraite' && input.simulation) {
+    doc.addPage()
+    drawPageHeader(doc, ref, 'SIMULATION DE VOS SCENARIOS DE DEPART')
+    drawSimulationTable(doc, input.simulation)
+  }
+
+  // ── Section 7b : Rachat de trimestres (pre-retraites) ──
+  if (input.variant === 'preretraite' && input.rachat && input.rachat.scenarios.length > 0) {
+    doc.addPage()
+    drawPageHeader(doc, ref, 'ANALYSE RACHAT DE TRIMESTRES')
+    drawRachatAnalysis(doc, input.rachat)
+  }
+
+  // ── Section reversion (reversion uniquement) ──
+  if (input.variant === 'reversion' && input.reversion) {
+    doc.addPage()
+    drawPageHeader(doc, ref, 'ELIGIBILITE REVERSION PAR REGIME')
+    drawReversionEligibilite(doc, input.reversion)
+
+    doc.addPage()
+    drawPageHeader(doc, ref, 'RECAPITULATIF DE VOS DROITS')
+    drawReversionRecap(doc, input.reversion)
+  }
 
   // ── Section 9 : Barometre + Section 10 : Mentions legales ──
   doc.addPage()
@@ -250,6 +279,229 @@ function drawActionGuide(doc: PDFKit.PDFDocument, anomalies: DetectedAnomaly[]) 
   }
 }
 
+
+// ─── Sections pre-retraite ───
+
+function drawSimulationTable(doc: PDFKit.PDFDocument, sim: SimulationResult) {
+  let y = doc.y + 10
+
+  // Intro
+  doc.font('Body').fontSize(10).fillColor(C.text)
+  doc.text(`Trimestres actuels : ${sim.trimestresActuels}`, LM, y)
+  y += 15
+  doc.text(`Age du taux plein : ${sim.ageTauxPlein} ans (${sim.anneeTauxPlein})`, LM, y)
+  y += 25
+
+  // Table header
+  const cols = ['Age', 'Annee', 'Trim.', 'Taux', 'Decote', 'Base', 'Compl.', 'TOTAL']
+  const colW = [40, 45, 40, 45, 45, 60, 60, 65]
+  let x = LM
+
+  doc.font('Bold').fontSize(8).fillColor(C.white)
+  doc.rect(LM, y, W, 18).fill(C.navy)
+  for (let i = 0; i < cols.length; i++) {
+    doc.text(cols[i], x + 3, y + 4, { width: colW[i] - 6, align: 'center' })
+    x += colW[i]
+  }
+  y += 18
+
+  // Rows
+  for (const s of sim.scenarios) {
+    const isRecommande = s.recommande
+    if (isRecommande) {
+      doc.rect(LM, y, W, 18).fill(C.emeraldLight)
+    } else if (sim.scenarios.indexOf(s) % 2 === 0) {
+      doc.rect(LM, y, W, 18).fill(C.bgLight)
+    }
+
+    doc.font(isRecommande ? 'Bold' : 'Body').fontSize(8).fillColor(C.text)
+    x = LM
+    const vals = [
+      `${s.age} ans`,
+      String(s.annee),
+      `${s.trimestresTotal}/${s.trimestresRequis}`,
+      `${s.taux}%`,
+      s.decotePct > 0 ? `-${s.decotePct}%` : s.surcotePct > 0 ? `+${s.surcotePct}%` : '0%',
+      `${fmtN(s.pensionBaseMensuelle)}EUR`,
+      `${fmtN(s.pensionComplementaireMensuelle)}EUR`,
+      `${fmtN(s.pensionTotaleMensuelle)}EUR`,
+    ]
+    for (let i = 0; i < vals.length; i++) {
+      doc.text(vals[i], x + 3, y + 4, { width: colW[i] - 6, align: 'center' })
+      x += colW[i]
+    }
+    y += 18
+  }
+
+  // Recommendation
+  const rec = sim.scenarioRecommande
+  if (rec) {
+    y += 15
+    doc.font('Bold').fontSize(9).fillColor(C.emeraldDark)
+    doc.text(`Recommandation : depart a ${rec.age} ans (${rec.annee})`, LM, y)
+    y += 14
+    doc.font('Body').fontSize(9).fillColor(C.text)
+    if (rec.note) doc.text(rec.note, LM, y)
+    y += 14
+    const ref62 = sim.scenarios[0]
+    if (ref62 && rec.age > ref62.age) {
+      const diff = rec.pensionTotaleMensuelle - ref62.pensionTotaleMensuelle
+      doc.text(`Ecart vs ${ref62.age} ans : +${fmtN(diff)}EUR/mois`, LM, y)
+    }
+  }
+
+  doc.y = y + 20
+}
+
+function drawRachatAnalysis(doc: PDFKit.PDFDocument, rachat: RachatResult) {
+  let y = doc.y + 10
+
+  doc.font('Body').fontSize(10).fillColor(C.text)
+  doc.text(`Trimestres manquants : ${rachat.trimestresManquants}`, LM, y)
+  y += 15
+  doc.text(`Trimestres rachetables (etudes) : ${rachat.trimestresRachetables}`, LM, y)
+  y += 25
+
+  for (const s of rachat.scenarios) {
+    // Box par scenario
+    const h = 70
+    const bgColor = s.rentable ? C.emeraldLight : C.bgLight
+    doc.rect(LM, y, W, h).fill(bgColor)
+    doc.rect(LM, y, W, h).stroke(s.rentable ? C.emeraldDark : C.border)
+
+    doc.font('Bold').fontSize(9).fillColor(C.text)
+    const optionLabel = s.option === 'taux' ? 'Option taux seul' : 'Option taux + duree'
+    doc.text(`${s.nbTrimestres} trimestre(s) — ${optionLabel}`, LM + 10, y + 8)
+
+    doc.font('Body').fontSize(8).fillColor(C.muted)
+    doc.text(`Cout estime : ${fmtN(s.coutEstime)}EUR`, LM + 10, y + 22)
+    doc.text(`Gain : +${fmtN(s.gainMensuel)}EUR/mois`, LM + 10, y + 34)
+    doc.text(`Temps de retour : ${s.tempsRetourAnnees} ans`, LM + 10, y + 46)
+
+    // Badge rentable
+    doc.font('Bold').fontSize(9).fillColor(s.rentable ? C.emeraldDark : C.red)
+    doc.text(s.rentable ? 'RENTABLE' : 'PAS RENTABLE', LM + W - 100, y + 28, { width: 80, align: 'right' })
+
+    y += h + 10
+    if (y > BOT - 80) { doc.addPage(); y = TOP }
+  }
+
+  // Recommandation finale
+  y += 10
+  doc.font('Bold').fontSize(9).fillColor(C.navy)
+  doc.text('Recommandation :', LM, y)
+  y += 14
+  doc.font('Body').fontSize(9).fillColor(C.text)
+  doc.text(rachat.recommandation, LM, y, { width: W })
+
+  doc.y = y + 30
+}
+
+
+// ─── Sections reversion ───
+
+function drawReversionEligibilite(doc: PDFKit.PDFDocument, rev: ReversionResult) {
+  let y = doc.y + 10
+
+  doc.font('Body').fontSize(10).fillColor(C.text)
+  doc.text(`Deces il y a ${rev.moisDepuisDeces} mois`, LM, y)
+  y += 15
+
+  if (rev.alerteRemariage) {
+    doc.font('Bold').fontSize(9).fillColor(C.red)
+    doc.text('Le remariage ou PACS entraine la perte du droit a reversion dans la plupart des regimes.', LM, y, { width: W })
+    y += 25
+  }
+
+  if (rev.alerteRetroactivite) {
+    doc.font('Body').fontSize(9).fillColor(C.amber)
+    doc.text(`Attention : la retroactivite est limitee a 12 mois pour les regimes de base. En faisant votre demande maintenant, vous preservez le maximum de vos droits.`, LM, y, { width: W })
+    y += 30
+  }
+
+  // Box par regime
+  for (const r of rev.regimes) {
+    const h = 75
+    const bg = r.eligible ? C.emeraldLight : '#FEF2F2'
+    const border = r.eligible ? C.emeraldDark : '#FECACA'
+    doc.rect(LM, y, W, h).fill(bg)
+    doc.rect(LM, y, W, h).stroke(border)
+
+    // Header
+    doc.font('Bold').fontSize(10).fillColor(C.navy)
+    doc.text(r.label, LM + 10, y + 8, { width: W - 120 })
+
+    // Badge
+    doc.font('Bold').fontSize(9).fillColor(r.eligible ? C.emeraldDark : C.red)
+    doc.text(r.eligible ? 'ELIGIBLE' : 'NON ELIGIBLE', LM + W - 100, y + 8, { width: 80, align: 'right' })
+
+    doc.font('Body').fontSize(8).fillColor(C.muted)
+    if (r.eligible) {
+      doc.text(`Taux : ${r.taux}%`, LM + 10, y + 24)
+      doc.text(`Estimation : ${fmtN(r.montantEstime.min)} - ${fmtN(r.montantEstime.max)}EUR/mois`, LM + 10, y + 36)
+      doc.text(`Retroactivite : ${r.retroactiviteIllimitee ? 'illimitee' : r.retroactiviteMois + ' mois'}`, LM + 10, y + 48)
+      doc.text(`Canal : ${r.canal}`, LM + 10, y + 60)
+    } else {
+      doc.text(`Motif : ${r.motifIneligibilite || 'Non eligible'}`, LM + 10, y + 28)
+    }
+
+    y += h + 8
+    if (y > BOT - 90) { doc.addPage(); drawPageHeader(doc, '', 'ELIGIBILITE (suite)'); y = doc.y + 10 }
+  }
+
+  doc.y = y + 10
+}
+
+function drawReversionRecap(doc: PDFKit.PDFDocument, rev: ReversionResult) {
+  let y = doc.y + 10
+
+  // Tableau recap
+  doc.font('Bold').fontSize(8).fillColor(C.white)
+  doc.rect(LM, y, W, 18).fill(C.navy)
+  const cols = ['Regime', 'Taux', 'Estimation mensuelle', 'Retroactivite']
+  const colW = [180, 60, 130, 125]
+  let x = LM
+  for (let i = 0; i < cols.length; i++) {
+    doc.text(cols[i], x + 5, y + 4, { width: colW[i] - 10, align: i === 0 ? 'left' : 'center' })
+    x += colW[i]
+  }
+  y += 18
+
+  for (const r of rev.regimes.filter(r => r.eligible)) {
+    doc.rect(LM, y, W, 18).fill(rev.regimes.indexOf(r) % 2 === 0 ? C.bgLight : C.white)
+    doc.font('Body').fontSize(8).fillColor(C.text)
+    x = LM
+    const vals = [
+      r.label,
+      `${r.taux}%`,
+      `${fmtN(r.montantEstime.min)} - ${fmtN(r.montantEstime.max)}EUR`,
+      r.retroactiviteIllimitee ? 'illimitee' : `${r.retroactiviteMois} mois`,
+    ]
+    for (let i = 0; i < vals.length; i++) {
+      doc.text(vals[i], x + 5, y + 4, { width: colW[i] - 10, align: i === 0 ? 'left' : 'center' })
+      x += colW[i]
+    }
+    y += 18
+  }
+
+  // Total
+  y += 5
+  doc.rect(LM, y, W, 24).fill(C.navy)
+  doc.font('Bold').fontSize(10).fillColor(C.white)
+  doc.text('TOTAL REVERSION ESTIMEE', LM + 10, y + 6)
+  doc.text(`${fmtN(rev.totalEstimeMensuel.min)} - ${fmtN(rev.totalEstimeMensuel.max)}EUR/mois`, LM + W - 200, y + 6, { width: 180, align: 'right' })
+  y += 30
+
+  // Retroactivite totale
+  if (rev.retroactiviteTotale.max > 0) {
+    doc.font('Body').fontSize(9).fillColor(C.text)
+    doc.text(`Retroactivite totale estimee : ${fmtN(rev.retroactiviteTotale.min)} - ${fmtN(rev.retroactiviteTotale.max)}EUR`, LM, y)
+    y += 20
+  }
+
+  doc.y = y + 10
+}
+
 function drawBarometer(doc: PDFKit.PDFDocument, d: DiagnosticResult) {
   let y = doc.y + 10
   doc.font('Bold').fontSize(11).fillColor(C.text).text('Barometre de fiabilite', LM, y); y += 18
@@ -269,4 +521,18 @@ function drawLegalNotice(doc: PDFKit.PDFDocument) {
   doc.font('Body').fontSize(7).fillColor(C.muted)
   const text = `RECUPEO n'est ni avocat, ni mandataire, ni intermediaire en operations de retraite. RECUPEO est un outil d'aide a l'analyse et un assistant administratif automatise. Le client reste le signataire de tout courrier et de toute demarche. Les calculs sont bases sur les formules officielles et les donnees fournies par le client. En cas de doute, le client est invite a consulter un professionnel du droit ou sa caisse de retraite. Conformement a l'article L.377-1 du Code de la Securite Sociale, tout intermediaire remunere faisant les demarches retraite a la place du client est passible de sanctions. RECUPEO ne fait pas les demarches a la place du client : il fournit les outils, le client agit.`
   doc.text(text, LM, y, { width: W, lineGap: 2 })
+}
+
+
+/**
+ * Genere 2 rapports PDF pour un pack couple.
+ * Retourne un tableau de 2 buffers (un par dossier).
+ */
+export function generateCoupleReports(
+  inputs: [ReportInput, ReportInput]
+): [Buffer, Buffer] {
+  return [
+    generateRetraitiaPDF({ ...inputs[0], variant: 'retraite' }),
+    generateRetraitiaPDF({ ...inputs[1], variant: 'retraite' }),
+  ]
 }

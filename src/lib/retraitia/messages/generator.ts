@@ -6,6 +6,7 @@
 // ============================================================
 
 import type { DetectedAnomaly, AnomalyId, DossierFormulaire, GeneratedMessage, MessageCategory, MessageChannel } from '../types'
+import type { ReversionRegime, DefuntInfo, SurvivantInfo } from '../types'
 
 // ─── Mapping anomalie → categorie de template ───
 
@@ -201,6 +202,187 @@ export function generateMessages(
       objet: injectVariables(template.objet, formulaire),
       corps: injectVariables(template.corps, formulaire),
       guideEnvoi,
+    })
+  }
+
+  return messages
+}
+
+
+// ─── Messages de demande de reversion ───
+
+interface ReversionMessageVars {
+  prenomSurvivant: string
+  nomSurvivant: string
+  nirSurvivant: string
+  dateNaissanceSurvivant: string
+  prenomDefunt: string
+  nomDefunt: string
+  nirDefunt: string
+  dateDeces: string
+  dateMariage: string
+}
+
+const REVERSION_TEMPLATES: Record<string, { objet: string; corps: string }> = {
+  cnav: {
+    objet: 'Demande de pension de reversion',
+    corps: `Madame, Monsieur,
+
+Suite au deces de mon conjoint {prenomDefunt} {nomDefunt}, survenu le {dateDeces}, je souhaite faire valoir mes droits a la pension de reversion.
+
+Informations sur le defunt :
+- Nom : {prenomDefunt} {nomDefunt}
+- N de securite sociale : {nirDefunt}
+- Date de deces : {dateDeces}
+
+Informations me concernant :
+- Nom : {prenomSurvivant} {nomSurvivant}
+- N de securite sociale : {nirSurvivant}
+- Date de naissance : {dateNaissanceSurvivant}
+- Date de mariage : {dateMariage}
+- Situation actuelle : non remarie(e)
+
+Je vous remercie de bien vouloir traiter ma demande dans les meilleurs delais.
+
+Cordialement,
+{prenomSurvivant} {nomSurvivant}`,
+  },
+  agirc_arrco: {
+    objet: 'Demande de pension de reversion complementaire Agirc-Arrco',
+    corps: `Madame, Monsieur,
+
+Suite au deces de mon conjoint {prenomDefunt} {nomDefunt} (N SS : {nirDefunt}), survenu le {dateDeces}, je souhaite faire valoir mes droits a la pension de reversion complementaire Agirc-Arrco.
+
+Je suis {prenomSurvivant} {nomSurvivant}, ne(e) le {dateNaissanceSurvivant}, N SS : {nirSurvivant}.
+
+Nous etions maries depuis le {dateMariage}. Je ne me suis pas remarie(e).
+
+Je joins les pieces justificatives requises.
+
+Cordialement,
+{prenomSurvivant} {nomSurvivant}`,
+  },
+  sre: {
+    objet: 'Demande de pension de reversion — Fonction publique Etat',
+    corps: `Madame, Monsieur,
+
+Suite au deces de mon conjoint {prenomDefunt} {nomDefunt}, fonctionnaire de l Etat, survenu le {dateDeces}, je souhaite faire valoir mes droits a la pension de reversion.
+
+Informations sur le defunt :
+- Nom : {prenomDefunt} {nomDefunt}
+- N de securite sociale : {nirDefunt}
+- Date de deces : {dateDeces}
+
+Informations me concernant :
+- Nom : {prenomSurvivant} {nomSurvivant}
+- N de securite sociale : {nirSurvivant}
+- Date de mariage : {dateMariage}
+- Je ne me suis pas remarie(e) ni pacse(e)
+
+Cordialement,
+{prenomSurvivant} {nomSurvivant}`,
+  },
+  cnracl: {
+    objet: 'Demande de pension de reversion — CNRACL',
+    corps: `Madame, Monsieur,
+
+Suite au deces de mon conjoint {prenomDefunt} {nomDefunt}, agent de la fonction publique territoriale/hospitaliere, survenu le {dateDeces}, je souhaite faire valoir mes droits a la pension de reversion.
+
+Defunt : {prenomDefunt} {nomDefunt}, N SS : {nirDefunt}
+Survivant : {prenomSurvivant} {nomSurvivant}, N SS : {nirSurvivant}
+Mariage le : {dateMariage}
+Situation : non remarie(e), non pacse(e)
+
+Cordialement,
+{prenomSurvivant} {nomSurvivant}`,
+  },
+  msa_salarie: {
+    objet: 'Demande de pension de reversion — MSA',
+    corps: `Madame, Monsieur,
+
+Suite au deces de mon conjoint {prenomDefunt} {nomDefunt} (N SS : {nirDefunt}), survenu le {dateDeces}, je souhaite faire valoir mes droits a la pension de reversion au titre du regime MSA.
+
+Survivant : {prenomSurvivant} {nomSurvivant}, N SS : {nirSurvivant}
+Date de mariage : {dateMariage}
+
+Cordialement,
+{prenomSurvivant} {nomSurvivant}`,
+  },
+  msa_exploitant: {
+    objet: 'Demande de pension de reversion — MSA exploitant',
+    corps: `Madame, Monsieur,
+
+Suite au deces de mon conjoint {prenomDefunt} {nomDefunt} (N SS : {nirDefunt}), exploitant agricole, survenu le {dateDeces}, je souhaite faire valoir mes droits a la pension de reversion.
+
+Survivant : {prenomSurvivant} {nomSurvivant}, N SS : {nirSurvivant}
+Date de mariage : {dateMariage}
+
+Cordialement,
+{prenomSurvivant} {nomSurvivant}`,
+  },
+  rafp: {
+    objet: 'Demande de reversion RAFP',
+    corps: `Madame, Monsieur,
+
+Suite au deces de mon conjoint {prenomDefunt} {nomDefunt} (N SS : {nirDefunt}), fonctionnaire, survenu le {dateDeces}, je souhaite faire valoir mes droits a la reversion au titre du RAFP.
+
+Survivant : {prenomSurvivant} {nomSurvivant}, N SS : {nirSurvivant}
+
+Cordialement,
+{prenomSurvivant} {nomSurvivant}`,
+  },
+}
+
+// Fallback pour les regimes sans template specifique
+const REVERSION_TEMPLATE_GENERIQUE = {
+  objet: 'Demande de pension de reversion',
+  corps: `Madame, Monsieur,
+
+Suite au deces de mon conjoint {prenomDefunt} {nomDefunt} (N SS : {nirDefunt}), survenu le {dateDeces}, je souhaite faire valoir mes droits a la pension de reversion.
+
+Survivant : {prenomSurvivant} {nomSurvivant}, N SS : {nirSurvivant}
+Date de mariage : {dateMariage}
+
+Cordialement,
+{prenomSurvivant} {nomSurvivant}`,
+}
+
+function injectReversionVars(text: string, vars: ReversionMessageVars): string {
+  return text
+    .replace(/\{prenomSurvivant\}/g, vars.prenomSurvivant)
+    .replace(/\{nomSurvivant\}/g, vars.nomSurvivant)
+    .replace(/\{nirSurvivant\}/g, vars.nirSurvivant)
+    .replace(/\{dateNaissanceSurvivant\}/g, vars.dateNaissanceSurvivant)
+    .replace(/\{prenomDefunt\}/g, vars.prenomDefunt)
+    .replace(/\{nomDefunt\}/g, vars.nomDefunt)
+    .replace(/\{nirDefunt\}/g, vars.nirDefunt)
+    .replace(/\{dateDeces\}/g, vars.dateDeces)
+    .replace(/\{dateMariage\}/g, vars.dateMariage)
+}
+
+/**
+ * Genere les messages de demande de reversion pour chaque regime eligible.
+ */
+export function generateReversionMessages(
+  regimes: ReversionRegime[],
+  vars: ReversionMessageVars,
+): GeneratedMessage[] {
+  const messages: GeneratedMessage[] = []
+
+  for (const regime of regimes) {
+    if (!regime.eligible) continue
+
+    const template = REVERSION_TEMPLATES[regime.regime] || REVERSION_TEMPLATE_GENERIQUE
+
+    messages.push({
+      anomalyId: 'N3_REVERSION_NON_DEMANDEE',
+      category: 'demande_reversion',
+      channel: 'messagerie_en_ligne',
+      organisme: regime.label,
+      destinataire: regime.canal,
+      objet: injectReversionVars(template.objet, vars),
+      corps: injectReversionVars(template.corps, vars),
+      guideEnvoi: `Connectez-vous sur ${regime.canal} et envoyez votre demande via la messagerie securisee.`,
     })
   }
 
