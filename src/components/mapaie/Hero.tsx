@@ -1,6 +1,5 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import { track } from '@/lib/analytics'
 import { fmt } from '@/lib/format'
 
@@ -18,16 +17,14 @@ const errors = [
 ]
 
 export default function Hero() {
-  const router = useRouter()
-
   const handleCTA = () => {
     track({ event: 'mapaie_cta_click', brique: 'mapaie', context: 'mapaie_hero_primary' })
-    router.push('/mapaie/audit')
+    document.getElementById('upload-section')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleSecondary = () => {
     track({ event: 'mapaie_cta_click', brique: 'mapaie', context: 'mapaie_hero_secondary' })
-    router.push('/mapaie/comment-ca-marche')
+    document.getElementById('comment-ca-marche')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (

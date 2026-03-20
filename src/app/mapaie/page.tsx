@@ -102,13 +102,13 @@ export default function MapaiePage() {
 
       {/* Phase 1 : Upload */}
       {step === 'upload' && (
-        <>
+        <div id="upload-section">
           <TrustBadgesCompact />
           <MapaieUpload
             onExtractionComplete={handleExtractionComplete}
             onManualMode={handleManualMode}
           />
-        </>
+        </div>
       )}
 
       {/* Phase 2 : Formulaire (pré-rempli ou manuel) */}
@@ -208,7 +208,7 @@ export default function MapaiePage() {
         </div>
       )}
 
-      {showUploadOrForm && <BriqueHowItWorks steps={MAPAIE_STEPS} />}
+      {showUploadOrForm && <div id="comment-ca-marche"><BriqueHowItWorks steps={MAPAIE_STEPS} /></div>}
       <TransparencyBlock data={MAPAIE_TRANSPARENCY} />
 
       <ReviewJsonLd brique="mapaie" briqueName="Audit bulletin de paie" />

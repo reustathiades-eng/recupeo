@@ -5,7 +5,7 @@ import { track } from '@/lib/analytics'
 
 const CONVENTIONS = [
   { value: 'IDCC_2216', label: 'Commerce alimentaire (IDCC 2216)' },
-  { value: 'IDCC_1979', label: 'HCR \u2014 Hôtels, Cafés, Restaurants (IDCC 1979)' },
+  { value: 'IDCC_1979', label: 'HCR - Hôtels, Cafés, Restaurants (IDCC 1979)' },
   { value: 'IDCC_1596', label: 'BTP Ouvriers (IDCC 1596)' },
   { value: 'IDCC_3248', label: 'Métallurgie (IDCC 3248)' },
   { value: 'IDCC_0573', label: 'Commerce de gros (IDCC 0573)' },
@@ -90,7 +90,7 @@ export default function Form({ onSubmit, defaultValues, loading }: Props) {
         <Field id="coefficient" label="Coefficient / Niveau">
           <input {...aria('coefficient')} type="text" className={inputCls('coefficient')} placeholder="Ex : 285 ou N3-E2" value={form.coefficient} onChange={e => set('coefficient', e.target.value)} />
         </Field>
-        <Field id="dateEntree" label="Date d\u2019entrée dans l\u2019entreprise">
+        <Field id="dateEntree" label="Date d'entrée dans l'entreprise">
           <input {...aria('dateEntree')} type="date" className={inputCls('dateEntree')} value={form.dateEntree} onChange={e => set('dateEntree', e.target.value)} />
         </Field>
         <Field id="tempsTravail" label="Temps de travail">
@@ -123,7 +123,7 @@ export default function Form({ onSubmit, defaultValues, loading }: Props) {
       </Field>
       {submitError && <p className="text-sm text-red-600 font-medium" role="alert">{submitError}</p>}
       <button type="submit" disabled={loading} className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#00D68F] text-[#0B1426] font-heading font-bold text-base transition-colors hover:bg-[#00C07F] focus:outline-none focus:ring-2 focus:ring-[#00D68F]/60 disabled:opacity-50 disabled:cursor-not-allowed">
-        {loading ? 'Analyse en cours…' : 'Lancer l\u2019audit de mes bulletins'}
+        {loading ? 'Analyse en cours...' : "Lancer l'audit de mes bulletins"}
       </button>
     </form>
   )
