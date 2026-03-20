@@ -302,6 +302,22 @@ export const OFFERS = {
       display: '69€',
     },
   },
+  mapaie: {
+    mapaie_audit_3m: {
+      id: 'mapaie_audit_3m',
+      label: 'Audit 3 mois',
+      description: 'Audit bulletins de paie 3 mois + détection anomalies + rapport',
+      amount: 4900,
+      display: '49€',
+    },
+    mapaie_audit_12m: {
+      id: 'mapaie_audit_12m',
+      label: 'Audit 12 mois + Réclamation',
+      description: 'Audit complet 12 mois + rapport détaillé + LRAR employeur + saisine CPH',
+      amount: 12900,
+      display: '129€',
+    },
+  },
 } as const
 
 export type Brique = keyof typeof OFFERS
