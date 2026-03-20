@@ -55,3 +55,8 @@ export const MONCHOMAGE_METHODOLOGY = [
   "SJR = Salaire de référence / Jours calendaires de la PRC. AJ = max(40,4% × SJR + 13,18€, 57% × SJR), plafonnée à 75% du SJR.",
   "Si vous uploadez vos documents (notification, bulletins, attestation), l'IA extrait les données réelles pour un calcul précis. Le mode manuel reste disponible.",
 ]
+
+export const MAPAIE_METHODOLOGY = [
+  "Chaque bulletin est comparé au SMIC en vigueur, aux taux légaux de majoration des heures supplémentaires et aux minima de votre convention collective.",
+  "Les rappels de salaire sont calculés sur 3 ans maximum, conformément à la prescription des salaires (art. L.3245-1 du Code du travail).",
+]

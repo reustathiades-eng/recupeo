@@ -148,3 +148,20 @@ export const MONCHOMAGE_TRANSPARENCY: TransparencyData = {
     'Les éventuels recours déjà engagés auprès de France Travail',
   ],
 }
+
+export const MAPAIE_TRANSPARENCY: TransparencyData = {
+  known: [
+    'Lecture automatique de vos bulletins de paie (OCR + IA)',
+    'Le SMIC mensuel brut en vigueur pour chaque période',
+    'Les taux légaux de majoration des heures supplémentaires (25 % et 50 %)',
+    'Les minima conventionnels des principales conventions collectives',
+    'Les cotisations salariales et patronales légales',
+    'La prescription des salaires sur 3 ans (art. L.3245-1 du Code du travail)',
+  ],
+  unknown: [
+    'Les accords d\'entreprise non publiés modifiant les minima ou la durée du travail',
+    'Les heures supplémentaires non déclarées sur vos bulletins',
+    'Les avantages en nature non mentionnés dans vos documents',
+    'Les bulletins que vous n\'avez pas uploadés',
+  ],
+}

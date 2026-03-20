@@ -25,7 +25,7 @@ const ALL_BRIQUES: CrossSellItem[] = [
 
 interface CrossSellBriquesProps {
   /** La brique courante (à exclure de la liste) */
-  currentBrique: 'mataxe' | 'monloyer' | 'retraitia' | 'macaution' | 'mapension' | 'mabanque' | 'monchomage' | 'monimpot'
+  currentBrique: 'mataxe' | 'monloyer' | 'retraitia' | 'macaution' | 'mapension' | 'mabanque' | 'monchomage' | 'monimpot' | 'mapaie'
   /** Nombre max de briques à afficher (défaut 3) */
   max?: number
   /** Titre personnalisé */

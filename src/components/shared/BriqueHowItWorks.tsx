@@ -82,3 +82,9 @@ export const MONCHOMAGE_STEPS: Step[] = [
   { num: '2', icon: '🤖', title: "L'IA recalcule votre ARE", desc: "SJR théorique, allocation journalière (2 formules), dégressivité : tout est vérifié et comparé." },
   { num: '3', icon: '💰', title: 'Contestation France Travail', desc: "Écart estimé, courrier de réclamation et saisine du médiateur prêts à envoyer." },
 ]
+
+export const MAPAIE_STEPS: Step[] = [
+  { num: '1', icon: '📄', title: 'Uploadez vos bulletins de paie', desc: "Déposez jusqu'à 12 bulletins (PDF ou photo). Notre IA extrait toutes les données automatiquement." },
+  { num: '2', icon: '🤖', title: "L'IA détecte les erreurs", desc: "SMIC, majorations heures sup, minima conventionnels, primes obligatoires : chaque ligne est vérifiée." },
+  { num: '3', icon: '💰', title: 'Réclamation employeur + CPH', desc: "Rappels calculés sur 3 ans, LRAR employeur et saisine prud'hommes prêts à envoyer." },
+]
