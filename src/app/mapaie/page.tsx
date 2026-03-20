@@ -66,16 +66,51 @@ export default function MapaiePage() {
   const handleFormSubmit = async (data: EmploiFormData) => {
     setFormLoading(true)
     try {
+      // Calcul ancienneté depuis dateEntree
+      const ancienneteAnnees = data.dateEntree
+        ? Math.floor((Date.now() - new Date(data.dateEntree).getTime()) / (365.25 * 24 * 3600 * 1000))
+        : 0
+
+      // Conversion tempsTravail -> dureeHebdomadaire
+      const tempsPartiel = data.tempsTravail === 'PARTIEL'
+      const dureeHebdomadaire = tempsPartiel
+        ? (parseFloat(data.quotite) || 17.5)
+        : 35
+
+      // Transformation vers PreDiagnosticSchema
+      const payload = {
+        emploi: {
+          intitulePoste: data.poste,
+          conventionCollective: data.conventionCode,
+          dateEntree: data.dateEntree,
+          tempsPartiel,
+          dureeHebdomadaire,
+          ...(data.coefficient ? { coefficient: parseFloat(data.coefficient) } : {}),
+        },
+        remuneration: {
+          salaireBrutMensuel: parseFloat(data.brutMensuel),
+          salaireNetMensuel: parseFloat(data.netMensuel),
+          heuresSupMensuelles: data.heuresSupHebdo ? parseFloat(data.heuresSupHebdo) * 4.33 : 0,
+          ancienneteAnnees,
+        },
+        periodeAudit: 'THREE_MONTHS' as const,
+        consentementTraitement: true as const,
+        extraction,
+      }
+
       const res = await fetch('/api/mapaie/pre-diagnostic', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, extraction }),
+        body: JSON.stringify(payload),
       })
       const json = await res.json()
       if (json.success) {
         setPrediagResult(json.result)
         setStep('prediag')
         setTimeout(() => document.getElementById('resultat')?.scrollIntoView({ behavior: 'smooth' }), 100)
+      } else {
+        console.error('[mapaie] pre-diagnostic error:', json)
+        alert(json.error ?? 'Une erreur est survenue. Vérifiez vos informations et réessayez.')
       }
     } finally {
       setFormLoading(false)
