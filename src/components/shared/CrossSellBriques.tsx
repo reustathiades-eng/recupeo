@@ -21,6 +21,7 @@ const ALL_BRIQUES: CrossSellItem[] = [
   { href: '/monimpot', name: 'MONIMPÔT', label: 'Déclaration revenus', desc: '69% des foyers oublient des réductions. Audit gratuit.', enjeu: '500–6 000€', icon: '📋', tag: 'Pré-diag gratuit' },
   { href: '/monimpot', name: 'MONIMPOT', label: 'Declaration revenus', desc: '69% des foyers oublient des reductions. Audit gratuit.', enjeu: '500-6 000\u20ac', icon: '\U0001f4cb', tag: 'Pre-diag gratuit' },
   { href: '/monchomage', name: 'MONCHÔMAGE', label: 'Allocation chômage', desc: "Erreurs de 5 à 50€/jour fréquentes. Vérifiez votre ARE.", enjeu: '500–3 000€', icon: '📋', tag: 'Pré-diag gratuit' },
+  { href: '/mapaie', name: 'MAPAIE', label: 'Bulletins de paie', desc: '33% des salariés ont subi une erreur de paie. Vérifiez les vôtres.', enjeu: '1 800–7 200€', icon: '💼', tag: 'Pré-diag gratuit' },
 ]
 
 interface CrossSellBriquesProps {
