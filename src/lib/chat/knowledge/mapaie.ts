@@ -1,0 +1,11 @@
+export const mapaie = `MAPAIE — Audit bulletin de paie
+- 33% des salariés français ont au moins une erreur sur leur bulletin de paie (études RH)
+- Erreurs fréquentes : heures supplémentaires non payées ou mal majorées, taux horaire inférieur au SMIC ou minimum conventionnel, primes oubliées (ancienneté, 13e mois), retenues illégales, congés payés mal calculés
+- Majorations légales heures supplémentaires : +25% pour les 8 premières (H36-43), +50% au-delà (H44+)
+- SMIC 2024 : 11,65€ brut/heure — aucun salarié ne peut être payé en dessous
+- Conventions collectives : certaines fixent un minimum conventionnel supérieur au SMIC
+- Prescription : 3 ans pour réclamer des rappels de salaire (art. L3245-1 Code du travail) — on peut récupérer jusqu'à 36 mois d'arriérés
+- Démarche : courrier de réclamation à l'employeur → saisine du Conseil de Prud'hommes (CPH) si refus
+- On analyse les bulletins via OCR + IA, on détecte les anomalies et on génère les courriers de réclamation
+- Tickets : 49€ (audit 3 mois) / 129€ (audit 12 mois + courrier de réclamation employeur + saisine CPH)
+- URL : /mapaie`

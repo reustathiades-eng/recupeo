@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/mabanque`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/monchomage`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/monimpot`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.9 },
+    { url: `${baseUrl}/mapaie`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/monimpot/rapport`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.6 },
     { url: `${baseUrl}/macaution/rapport`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/mataxe/rapport`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },

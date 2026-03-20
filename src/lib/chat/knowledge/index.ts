@@ -2,6 +2,8 @@
 // RÉCUPÉO — Knowledge Base par brique (injecté dans system prompt)
 // ============================================================
 
+import { mapaie } from './mapaie'
+
 export const KNOWLEDGE: Record<string, string> = {
   macaution: `MACAUTION — Dépôt de garantie
 - Article 22 loi 6 juillet 1989 : restitution sous 1 mois (état conforme) ou 2 mois (dégradations)
@@ -69,6 +71,8 @@ export const KNOWLEDGE: Record<string, string> = {
 - Erreurs fréquentes : primes omises, arrêts maladie non neutralisés, multi-contrats mal agrégés
 - Tickets : 69€ (rapport) / 129€ (rapport + contestation + médiateur)
 - URL : /monchomage`,
+
+  mapaie,
 
   monimpot: `MONIMPOT — Déclaration de revenus (V2 avec upload)
 - Upload avis d'imposition (PDF/photo) → extraction automatique par IA
