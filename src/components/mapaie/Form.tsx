@@ -30,6 +30,18 @@ export interface EmploiFormData {
 const EMPTY: EmploiFormData = { poste: '', conventionCode: '', statut: '', coefficient: '', dateEntree: '', tempsTravail: '', quotite: '', brutMensuel: '', netMensuel: '', heuresSupHebdo: '', primes: '', changements: '' }
 const REQUIRED: (keyof EmploiFormData)[] = ['poste', 'conventionCode', 'statut', 'dateEntree', 'tempsTravail', 'brutMensuel', 'netMensuel']
 
+interface FieldProps { id: string; label: string; required?: boolean; error?: string; children: React.ReactNode }
+
+function Field({ id, label, required, error, children }: FieldProps) {
+  return (
+    <div className="flex flex-col gap-1">
+      <label htmlFor={id} className="text-sm font-medium text-[#1E293B]">{label}{required && <span className="text-red-600 ml-0.5" aria-hidden="true">*</span>}</label>
+      {children}
+      {error && <p id={`${id}-error`} className="text-sm text-red-600" role="alert">{error}</p>}
+    </div>
+  )
+}
+
 interface Props { onSubmit: (data: EmploiFormData) => void; defaultValues?: Partial<EmploiFormData>; loading?: boolean }
 
 export default function Form({ onSubmit, defaultValues, loading }: Props) {
@@ -58,42 +70,34 @@ export default function Form({ onSubmit, defaultValues, loading }: Props) {
   const req = (k: keyof EmploiFormData) => REQUIRED.includes(k) || (k === 'quotite' && form.tempsTravail === 'PARTIEL')
   const err = (k: keyof EmploiFormData) => errors[k]
 
-  const Field = ({ id, label, children }: { id: keyof EmploiFormData; label: string; children: React.ReactNode }) => (
-    <div className="flex flex-col gap-1">
-      <label htmlFor={id} className="text-sm font-medium text-[#1E293B]">{label}{req(id) && <span className="text-red-600 ml-0.5" aria-hidden="true">*</span>}</label>
-      {children}
-      {err(id) && <p id={`${id}-error`} className="text-sm text-red-600" role="alert">{err(id)}</p>}
-    </div>
-  )
-
   const inputCls = (k: keyof EmploiFormData) => `w-full rounded-lg border px-3 py-2.5 text-sm text-[#1E293B] bg-white outline-none transition-colors focus:ring-2 focus:ring-[#00D68F]/40 focus:border-[#00D68F] ${err(k) ? 'border-red-400' : 'border-slate-300'}`
   const aria = (k: keyof EmploiFormData) => ({ id: k, 'aria-required': req(k) ? ('true' as const) : undefined, 'aria-invalid': err(k) ? ('true' as const) : undefined, 'aria-describedby': err(k) ? `${k}-error` : undefined })
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <Field id="poste" label="Intitulé du poste">
+        <Field id="poste" label="Intitulé du poste" required={req('poste')} error={err('poste')}>
           <input {...aria('poste')} type="text" className={inputCls('poste')} placeholder="Ex : Technicien de maintenance" value={form.poste} onChange={e => set('poste', e.target.value)} />
         </Field>
-        <Field id="conventionCode" label="Convention collective">
+        <Field id="conventionCode" label="Convention collective" required={req('conventionCode')} error={err('conventionCode')}>
           <select {...aria('conventionCode')} className={inputCls('conventionCode')} value={form.conventionCode} onChange={e => set('conventionCode', e.target.value)}>
             <option value="">Sélectionnez</option>
             {CONVENTIONS.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
           </select>
         </Field>
-        <Field id="statut" label="Statut">
+        <Field id="statut" label="Statut" required={req('statut')} error={err('statut')}>
           <select {...aria('statut')} className={inputCls('statut')} value={form.statut} onChange={e => set('statut', e.target.value)}>
             <option value="">Sélectionnez</option>
             {STATUTS.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
           </select>
         </Field>
-        <Field id="coefficient" label="Coefficient / Niveau">
+        <Field id="coefficient" label="Coefficient / Niveau" required={req('coefficient')} error={err('coefficient')}>
           <input {...aria('coefficient')} type="text" className={inputCls('coefficient')} placeholder="Ex : 285 ou N3-E2" value={form.coefficient} onChange={e => set('coefficient', e.target.value)} />
         </Field>
-        <Field id="dateEntree" label="Date d'entrée dans l'entreprise">
+        <Field id="dateEntree" label="Date d'entrée dans l'entreprise" required={req('dateEntree')} error={err('dateEntree')}>
           <input {...aria('dateEntree')} type="date" className={inputCls('dateEntree')} value={form.dateEntree} onChange={e => set('dateEntree', e.target.value)} />
         </Field>
-        <Field id="tempsTravail" label="Temps de travail">
+        <Field id="tempsTravail" label="Temps de travail" required={req('tempsTravail')} error={err('tempsTravail')}>
           <select {...aria('tempsTravail')} className={inputCls('tempsTravail')} value={form.tempsTravail} onChange={e => set('tempsTravail', e.target.value)}>
             <option value="">Sélectionnez</option>
             <option value="PLEIN">Temps plein</option>
@@ -101,24 +105,24 @@ export default function Form({ onSubmit, defaultValues, loading }: Props) {
           </select>
         </Field>
         {form.tempsTravail === 'PARTIEL' && (
-          <Field id="quotite" label="Quotité (heures/semaine)">
+          <Field id="quotite" label="Quotité (heures/semaine)" required={req('quotite')} error={err('quotite')}>
             <input {...aria('quotite')} type="text" className={inputCls('quotite')} placeholder="Ex : 24" value={form.quotite} onChange={e => set('quotite', e.target.value)} />
           </Field>
         )}
-        <Field id="brutMensuel" label="Salaire brut mensuel (€)">
+        <Field id="brutMensuel" label="Salaire brut mensuel (€)" required={req('brutMensuel')} error={err('brutMensuel')}>
           <input {...aria('brutMensuel')} type="text" inputMode="decimal" className={inputCls('brutMensuel')} placeholder="Ex : 2 450" value={form.brutMensuel} onChange={e => set('brutMensuel', e.target.value)} />
         </Field>
-        <Field id="netMensuel" label="Salaire net mensuel (€)">
+        <Field id="netMensuel" label="Salaire net mensuel (€)" required={req('netMensuel')} error={err('netMensuel')}>
           <input {...aria('netMensuel')} type="text" inputMode="decimal" className={inputCls('netMensuel')} placeholder="Ex : 1 920" value={form.netMensuel} onChange={e => set('netMensuel', e.target.value)} />
         </Field>
-        <Field id="heuresSupHebdo" label="Heures supplémentaires / semaine">
+        <Field id="heuresSupHebdo" label="Heures supplémentaires / semaine" required={req('heuresSupHebdo')} error={err('heuresSupHebdo')}>
           <input {...aria('heuresSupHebdo')} type="text" inputMode="decimal" className={inputCls('heuresSupHebdo')} placeholder="Ex : 4" value={form.heuresSupHebdo} onChange={e => set('heuresSupHebdo', e.target.value)} />
         </Field>
       </div>
-      <Field id="primes" label="Primes et compléments (13e mois, ancienneté, panier…)">
+      <Field id="primes" label="Primes et compléments (13e mois, ancienneté, panier…)" required={req('primes')} error={err('primes')}>
         <textarea {...aria('primes')} rows={3} className={inputCls('primes')} placeholder="Décrivez les primes que vous percevez ou devriez percevoir" value={form.primes} onChange={e => set('primes', e.target.value)} />
       </Field>
-      <Field id="changements" label="Changements récents (poste, horaires, rémunération…)">
+      <Field id="changements" label="Changements récents (poste, horaires, rémunération…)" required={req('changements')} error={err('changements')}>
         <textarea {...aria('changements')} rows={3} className={inputCls('changements')} placeholder="Signalez tout changement intervenu ces 3 dernières années" value={form.changements} onChange={e => set('changements', e.target.value)} />
       </Field>
       {submitError && <p className="text-sm text-red-600 font-medium" role="alert">{submitError}</p>}
