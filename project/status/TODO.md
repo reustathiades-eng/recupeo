@@ -1,51 +1,25 @@
 # TODO — Prochaines etapes
 
-**Derniere mise a jour** : 2026-03-18 15:30 UTC (fin session 13)
+**Derniere mise a jour** : 2026-03-20 12:00 UTC (session MAPAIE + Claude Code)
+
+---
+
+## PRIORITE 0 — MAPAIE Bugs a corriger / tester
+
+- [ ] Tester parcours complet formulaire → pre-diagnostic → resultat (navigateur)
+- [ ] Tester Upload bulletins PDF → extraction OCR → formulaire pre-rempli
+- [ ] Tester paiement Stripe 49EUR / 129EUR → rapport complet
+- [ ] Tester generation courrier LRAR + saisine CPH
+- [ ] Verifier mobile responsive (Hero + Form + PreDiag + Paywall)
+- [ ] Verifier que le cross-sell MAPAIE apparait sur les autres briques
+- [ ] Verifier chat IA knowledge base mapaie
+- [ ] Ajouter Extraction.tsx (affichage donnees extraites avant formulaire)
+- [ ] Tester avec de vrais bulletins de paie (ou fixtures realistes)
 
 ---
 
 ## PRIORITE 1 — MONIMPOT Tests finaux
 
-### Fait session 13 — Monetisation V4 + Rapport + Reclamation
-
-#### Phase 1 : Teaser + paywall 3 offres
-- [x] MonimpotPreDiag : score /100 + jauge + fourchette uniquement
-- [x] Suppression seuil gratuit 60€
-- [x] MonimpotPaywall : 3 offres Express 19€ / Standard 39€ / Premium 69€
-- [x] payment.ts : 5 offres → 3 (monimpot_express/standard/premium)
-- [x] Email teaser (nb + fourchette, plus de details)
-- [x] Wording "verification gratuite" partout
-- [x] GA4 paliers express_19/standard_39/premium_69
-
-#### Phase 2 : Corrections post-test
-- [x] getBlurredLabel 30/30 types (fix collision per)
-- [x] Paywall masque si economie=0
-- [x] Chat IA knowledge base tarifs 19/39/69€
-- [x] getFourchette() → utils.ts (DRY)
-- [x] Fix age validation min/max + schema Zod align
-- [x] Erreurs Zod detaillees + RecapStep teaser
-
-#### Phase 3 : Frontiere gratuit/payant definitive
-- [x] GRATUIT = score + fourchette + nb optimisations SEULEMENT
-- [x] PAYANT = tout le reste (labels, montants, cases, descriptions)
-- [x] Suggestions goodwill si 0 anomalies, absentes si anomalies
-- [x] Paywall : apercu rapport (3 icones + extrait floute)
-- [x] Email optionnel dans 3 formulaires + schema + types
-
-#### Phase 4 : Rapport + Guide + Reclamation
-- [x] PDF separateur : marge augmentee (fix trait sur texte)
-- [x] Guide correction : sous-etapes detaillees a/b/c + introduction + rappel delai
-- [x] Reclamation : formulaire 7 champs (nom, adresse, CP, ville, n fiscal, n avis, centre)
-- [x] Reclamation : Option 1 courrier recommande + Option 2 message impots.gouv.fr
-- [x] Courrier + message mis a jour en temps reel (getPersonalizedCorps)
-- [x] PDF reclamation : substitution placeholders depuis sensitiveData (nom, adresse, CP, ville, nf, na, centre)
-- [x] PDF reclamation : corps depuis "Madame, Monsieur" (plus de doublon en-tete)
-- [x] Report-builder : economie = somme optimisations (plus bareme)
-- [x] Synthese : eco depuis somme optimisations aussi
-- [x] PDF rapport : supprime override bareme (rapport fait foi)
-- [x] economie_3ans ajoute au rapport
-
-### Reste a faire
 - [ ] Tester parcours complet Upload → Extraction → SmartForm → resultat (navigateur)
 - [ ] Tester parcours complet Formulaire V3 → resultat SANS email
 - [ ] Tester PDF rapport (chiffres coherents)
@@ -64,31 +38,31 @@ SIRET depose le 16/03/2026, reception 1-4 semaines.
 - [ ] Completer onboarding Stripe (SIRET + IBAN)
 - [ ] Basculer cles test vers prod dans .env
 - [ ] Reconfigurer webhook production
-- [ ] Decommenter verification paid dans 8 routes full-report
-- [ ] Test paiement reel (8 briques)
+- [ ] Decommenter verification paid dans 9 routes full-report (8 briques + mapaie)
+- [ ] Test paiement reel (9 briques)
 
 ---
 
-## PRIORITE 3 — Prochaines briques
+## PRIORITE 3 — Prochaines briques (Claude Code)
 
-Briefs dans le projet Claude :
-- MAPAIE (49-129 euros, upload bulletin, enjeu 1800-7200 euros) — 33% erreurs de paie
-- MESDROITS (19-49 euros, formulaire pur, enjeu variable) — 10 Mds aides non reclamees
-- MONDEPART (69-199 euros, upload solde tout compte, enjeu 1000-5000 euros)
+Ordre valide :
+1. **MESDROITS** — aides sociales non reclamees (lead magnet gratuit + cross-sell)
+2. **MONDEPART** — solde de tout compte (upload + extraction)
+3. **MONDPE** — audit DPE immobilier (formulaire + calcul)
+4. **MONPRET** — TAEG credit immobilier (le plus complexe)
+
+Briefs dans le projet Claude Desktop.
 
 ---
 
-## PRIORITE 4 — Ameliorations transversales
+## PRIORITE 4 — RETRAITIA V2 (EUSTAT s'en occupe)
 
-### SEO & Acquisition
-- [ ] Simulateur MONIMPOT gratuit (Phase 2 SEO — brief BRIEF_SIMULATEUR_MONIMPOT.md)
-- [ ] Blog SEO (articles thematiques par brique)
-- [ ] Pictos BriquesGrid Midjourney
+77/113 taches. MVP fonctionnel. Reste : P2 (regimes supplementaires, pre-retraite, reversion, couple) + P3 (LRAR, tribunal, cross-sell).
 
-### Engagement & Retention
-- [ ] Email cross-sell J+3 (Brevo Automation)
-- [ ] Cron PM2 emails avis J+2 et J+30
+---
 
-### Qualite
-- [ ] Tests utilisateurs reels (3-5 personnes)
-- [ ] Test responsive iOS/Android
+## Infra
+
+- [ ] Regenerer token GitHub (expose dans conversation Claude)
+- [ ] Regenerer cle API Anthropic si necessaire
+- [ ] Surveiller consommation API Anthropic (Claude Code)

@@ -138,3 +138,28 @@ Voir archives dans /var/www/recupeo/project/sessions.md
 - 7 champs: nom, adresse, CP, ville, n fiscal, n avis, centre impots
 - 2 options: courrier recommande PDF + message impots.gouv.fr
 - Temps reel dans les 2 modeles + PDF substitution complete
+
+---
+
+## 2026-03-20 — Session 14 : MAPAIE + Claude Code
+
+### Added
+- Brique MAPAIE complete (26 fichiers, 9eme brique)
+- Git + GitHub (repo prive reustathiades-eng/recupeo)
+- Jest configure
+- Claude Code installe sur VPS (v2.1.80)
+- CLAUDE.md a la racine du projet
+- 11 events GA4 mapaie_*
+- 2 offres Stripe mapaie_audit_3m (49EUR) + mapaie_audit_12m (129EUR)
+- Knowledge base chat IA pour mapaie
+- CrossSell mapaie sur toutes les briques
+
+### Fixed
+- Hero.tsx : boutons scrollent au lieu de naviguer vers pages inexistantes
+- Form.tsx : apostrophes unicode, Field extrait hors composant (bug focus), mapping donnees vers API
+- analytics.ts : ajout events mapaie manquants
+
+### Infrastructure
+- Orchestrateur multi-agents construit puis abandonne (taux succes insuffisant)
+- Migration vers Claude Code (taux succes ~95%)
+- Script de taches sequentielles via screen/tmux + Claude Code -p --dangerously-skip-permissions

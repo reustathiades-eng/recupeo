@@ -375,3 +375,80 @@
 - [x] PDF rapport: supprime override bareme
 
 ### 13 fichiers modifies + 2 crees
+
+---
+
+## Session 14 — 2026-03-20 — MAPAIE (Brique #9)
+
+### Contexte
+Premiere brique construite via Claude Code (apres tentative orchestrateur multi-agents).
+Construite en 27 minutes via script de 16 taches executees par Claude Code en autonomie.
+
+### Infrastructure mise en place
+- [x] Git initialise sur VPS + push GitHub (github.com/reustathiades-eng/recupeo, prive)
+- [x] Jest + ts-jest configures (jest.config.cjs)
+- [x] Claude Code installe sur VPS (v2.1.80)
+- [x] CLAUDE.md cree a la racine du projet (contexte persistant)
+- [x] Node.js 22 installe sur WSL + SSH WSL→VPS configure
+
+### Orchestrateur multi-agents (tentative abandonnee)
+- Construit un orchestrateur TypeScript complet (12 fichiers, 911 lignes)
+- Agents : planner (Haiku), coder (Sonnet), reviewer (Sonnet), tester (Sonnet), escalation (Opus)
+- Probleme : taux de succes ~30% (troncature fichiers, manque de contexte projet)
+- Decision : abandonner au profit de Claude Code (taux succes ~95%, lit les vrais fichiers)
+- Budget depense sur orchestrateur : ~$2.19 (74 appels API)
+- L'orchestrateur reste dans /home/ubuntu/orchestrator/ comme reference
+
+### MAPAIE — 26 fichiers crees
+
+**Backend (lib) :**
+- [x] src/lib/mapaie/types/ (base.ts, bulletin.ts, anomaly.ts, convention.ts, index.ts)
+- [x] src/lib/mapaie/schema.ts — validation Zod (emploi, remuneration, upload, pre-diagnostic)
+- [x] src/lib/mapaie/constants.ts — SMIC 2026, majorations HS, PMSS, cotisations
+- [x] src/lib/mapaie/conventions.ts — CCN > 1000 salaries (IDCC, minima, primes)
+- [x] src/lib/mapaie/calculations.ts — calculs HS, rappel salaire, SMIC, anciennete
+- [x] src/lib/mapaie/anomaly-detection.ts — 8 types anomalies paie
+- [x] src/lib/mapaie/prompts.ts — extraction, pre-diag, rapport, reclamation
+
+**API routes :**
+- [x] /api/mapaie/extract — OCR + Vision + anonymisation PII
+- [x] /api/mapaie/pre-diagnostic — detection anomalies (JS pur, gratuit)
+- [x] /api/mapaie/full-report — rapport complet (Stripe + Claude)
+- [x] /api/mapaie/generate-letters — LRAR employeur + saisine CPH
+
+**Frontend (composants) :**
+- [x] Hero.tsx — landing, stats, CTA scroll
+- [x] Upload.tsx — drag & drop PDF, multi-fichiers, extraction
+- [x] Form.tsx — emploi + remuneration (Field extrait hors composant)
+- [x] PreDiag.tsx — resultat pre-diagnostic (anomalies, rappel, score)
+- [x] Paywall.tsx — 2 offres 49EUR / 129EUR
+- [x] Report.tsx — rapport complet (sections, bilan, LRAR, CPH)
+- [x] FAQ.tsx — 10 questions
+
+**Pages :**
+- [x] /mapaie/page.tsx — orchestration Hero→Upload→Form→PreDiag→Paywall→Report→FAQ
+- [x] /mapaie/layout.tsx — metadata SEO
+
+**Transversal :**
+- [x] payment.ts — offres mapaie_audit_3m (49EUR), mapaie_audit_12m (129EUR)
+- [x] sitemap.ts — URL /mapaie ajoutee
+- [x] chat/knowledge/mapaie.ts — knowledge base chat IA
+- [x] constants.ts — available: true, tag: Disponible
+- [x] CrossSellBriques — mapaie ajoute
+- [x] analytics.ts — 11 events mapaie_*
+
+### Bugs corriges
+- [x] Hero boutons → scrollIntoView au lieu de router.push inexistant
+- [x] Form apostrophes \u2019 → apostrophes normales
+- [x] Form Field recree a chaque frappe → extrait hors composant
+- [x] Form → API mapping plat vers structure PreDiagnosticSchema
+
+### Build
+TS : 0 erreurs mapaie / Build : SUCCESS / PM2 : online / HTTP 200
+
+### Statistiques
+- 26 fichiers crees
+- 16 taches Claude Code en 27 minutes
+- 4 bugs corriges post-deploiement
+- ~20 commits git
+- Budget API Claude Code : inclus dans abonnement Pro

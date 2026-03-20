@@ -77,3 +77,34 @@
 - 7 briques : MACAUTION, RETRAITIA, MONLOYER, MATAXE, MAPENSION, MABANQUE, MONCHOMAGE
 - Home page 15 sections AIDA
 - Pages legales, SEO, sitemap
+
+---
+
+## Session 14 — 2026-03-20
+
+**Objectif :** Construire MAPAIE (brique #9) + setup infrastructure autonome
+
+**Duree :** ~4h (brainstorm + orchestrateur + Claude Code + debug)
+
+**Realise :**
+1. Brainstorm architecture multi-agents (planner/coder/reviewer/tester/deployer)
+2. Setup Git + GitHub + Jest
+3. Construction orchestrateur TypeScript (12 fichiers, 911 lignes)
+4. Test orchestrateur : 5/27 taches, taux succes ~30% → abandonne
+5. Installation Claude Code sur VPS
+6. Construction MAPAIE via Claude Code : 16 taches en 27 minutes
+7. Debug 4 bugs post-deploiement via Claude Code
+8. MAPAIE live sur recupeo.fr/mapaie
+
+**Decisions cles :**
+- Orchestrateur multi-agents abandonne → Claude Code plus fiable
+- Methode de travail : script bash avec taches sequentielles + Claude Code -p --dangerously-skip-permissions
+- Budget orchestrateur API : ~$2.19 (gaspille) — Claude Code inclus dans abo Pro
+- Prochaines briques : MESDROITS → MONDEPART → MONDPE → MONPRET
+- MONASSURANCE supprimee du backlog
+- RETRAITIA P2 : EUSTAT s'en occupe separement
+
+**Etat fin de session :**
+- 9 briques live (macaution, monloyer, retraitia, mataxe, mapension, mabanque, monchomage, monimpot, mapaie)
+- MAPAIE : 26 fichiers, HTTP 200, build OK, bugs de saisie corriges
+- Reste a tester : parcours complet, upload reel, Stripe, mobile
